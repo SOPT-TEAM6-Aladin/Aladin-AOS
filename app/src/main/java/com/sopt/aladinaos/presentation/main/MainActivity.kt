@@ -1,4 +1,4 @@
-package com.sopt.aladinaos.presentation
+package com.sopt.aladinaos.presentation.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
