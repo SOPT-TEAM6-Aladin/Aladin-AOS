@@ -19,6 +19,16 @@ captures/
 *.apk
 output.json
 
+# Android Studio
+/*/build/
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
+*.ipr
+*~
+*.swp
+
 # IntelliJ
 *.iml
 .idea/
