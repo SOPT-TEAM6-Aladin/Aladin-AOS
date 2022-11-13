@@ -25,6 +25,14 @@ output.json
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
 
 # Keystore files
 *.jks
