@@ -1,12 +1,13 @@
 package com.sopt.aladinaos.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.sopt.aladinaos.R
 import com.sopt.aladinaos.databinding.ActivityMainBinding
-import com.sopt.aladinaos.presentation.cart.CartFragment
+import com.sopt.aladinaos.presentation.cart.CartActivity
 import com.sopt.aladinaos.presentation.home.HomeFragment
 import com.sopt.aladinaos.presentation.profile.ProfileFragment
 import com.sopt.aladinaos.util.binding.BindingActivity
@@ -29,7 +30,8 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
                     moveFragment(HomeFragment())
                 }
                 R.id.menu_cart -> {
-                    moveFragment(CartFragment())
+                    val toCart = Intent(this, CartActivity::class.java)
+                    startActivity(toCart)
                 }
                 else -> error(getString(R.string.bot_navi_error, menu.itemId))
             }
