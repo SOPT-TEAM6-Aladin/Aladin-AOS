@@ -1,5 +1,6 @@
 package com.sopt.aladinaos.data.di
 
+import com.sopt.aladinaos.BuildConfig
 import com.sopt.aladinaos.data.service.CartService
 import com.sopt.aladinaos.data.service.DetailService
 import com.sopt.aladinaos.data.service.HomeService
@@ -30,7 +31,7 @@ class RetrofitModule {
                         .newBuilder()
                         .addHeader(
                             HEADER_AUTHORIZATION,
-                            DUMMY_ACCESS_TOKEN
+                            BuildConfig.DUMMY_ACCESS_TOKEN
                         )
                         .addHeader(AUTHORIZATION, USER_ID)
                         .build()
@@ -56,7 +57,7 @@ class RetrofitModule {
         okHttpClient: OkHttpClient
     ): Retrofit =
         Retrofit.Builder()
-            .baseUrl(ALADIN_URI)
+            .baseUrl(BuildConfig.ALADIN_URI)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -77,7 +78,5 @@ class RetrofitModule {
         private const val HEADER_AUTHORIZATION = "Authorization"
         private const val AUTHORIZATION = "Authorization"
         private const val USER_ID = "1"
-        private const val DUMMY_ACCESS_TOKEN = "dummy token"
-        private const val ALADIN_URI = "aladin uri"
     }
 }
