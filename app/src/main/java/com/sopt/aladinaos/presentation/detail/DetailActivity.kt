@@ -1,8 +1,7 @@
 package com.sopt.aladinaos.presentation.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.sopt.aladinaos.R
+import androidx.appcompat.app.AppCompatActivity
 import com.sopt.aladinaos.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
