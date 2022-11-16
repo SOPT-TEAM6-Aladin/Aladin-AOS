@@ -32,7 +32,7 @@ jobs:
       
 #     - name: Access Local Properties
 #       env:
-#         KORAIL_URI: ${{ secrets.ALADIN_URI }}
+#         ALADIN_URI: ${{ secrets.ALADIN_URI }}
 #       run: |
 #         echo ALADIN_URI=\"$ALADIN_URI\" >> local.properties
 
