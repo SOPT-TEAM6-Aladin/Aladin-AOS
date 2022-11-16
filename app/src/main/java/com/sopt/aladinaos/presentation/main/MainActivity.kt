@@ -3,8 +3,6 @@ package com.sopt.aladinaos.presentation.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import com.sopt.aladinaos.R
 import com.sopt.aladinaos.databinding.ActivityMainBinding
 import com.sopt.aladinaos.presentation.cart.CartActivity
