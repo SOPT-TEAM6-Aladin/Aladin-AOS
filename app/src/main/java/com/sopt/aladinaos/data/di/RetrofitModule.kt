@@ -1,6 +1,5 @@
 package com.sopt.aladinaos.data.di
 
-import com.sopt.aladinaos.BuildConfig
 import com.sopt.aladinaos.data.service.CartService
 import com.sopt.aladinaos.data.service.DetailService
 import com.sopt.aladinaos.data.service.HomeService
