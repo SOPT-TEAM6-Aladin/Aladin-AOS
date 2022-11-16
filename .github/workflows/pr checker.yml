@@ -32,9 +32,9 @@ jobs:
       
 #     - name: Access Local Properties
 #       env:
-#         KORAIL_URI: ${{ secrets.KORAIL_URI }}
+#         ALADIN_URI: ${{ secrets.ALADIN_URI }}
 #       run: |
-#         echo KORAIL_URI=\"$KORAIL_URI\" >> local.properties
+#         echo ALADIN_URI=\"$ALADIN_URI\" >> local.properties
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
