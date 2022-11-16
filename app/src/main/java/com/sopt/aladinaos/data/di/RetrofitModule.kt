@@ -31,7 +31,7 @@ class RetrofitModule {
                         .newBuilder()
                         .addHeader(
                             HEADER_AUTHORIZATION,
-                            BuildConfig.DUMMY_ACCESS_TOKEN
+                            DUMMY_ACCESS_TOKEN
                         )
                         .addHeader(AUTHORIZATION, USER_ID)
                         .build()
@@ -57,7 +57,7 @@ class RetrofitModule {
         okHttpClient: OkHttpClient
     ): Retrofit =
         Retrofit.Builder()
-            .baseUrl(BuildConfig.ALADIN_URI)
+            .baseUrl(ALADIN_URI)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -78,5 +78,7 @@ class RetrofitModule {
         private const val HEADER_AUTHORIZATION = "Authorization"
         private const val AUTHORIZATION = "Authorization"
         private const val USER_ID = "1"
+        private const val DUMMY_ACCESS_TOKEN = "dummy token"
+        private const val ALADIN_URI = "aladin uri"
     }
 }
