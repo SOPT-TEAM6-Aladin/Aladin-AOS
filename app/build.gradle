@@ -17,7 +17,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "ALADIN_URL", properties.getProperty("ALADIN_URL")
+        buildConfigField "String", "ALADIN_URI", properties.getProperty("ALADIN_URI")
         buildConfigField "String", "DUMMY_ACCESS_TOKEN", properties.getProperty("DUMMY_ACCESS_TOKEN")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

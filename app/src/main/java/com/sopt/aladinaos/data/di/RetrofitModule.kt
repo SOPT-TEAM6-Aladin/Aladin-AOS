@@ -57,7 +57,7 @@ class RetrofitModule {
         okHttpClient: OkHttpClient
     ): Retrofit =
         Retrofit.Builder()
-            .baseUrl(BuildConfig.ALADIN_URL)
+            .baseUrl(BuildConfig.ALADIN_URI)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
