@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/ic_bot_profile_unchecked"
+        android:title="@string/bot_navi_profile"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_bot_home_unchecked"
+        android:title="@string/bot_navi_home"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/menu_cart"
+        android:icon="@drawable/ic_bot_cart_unchecked"
+        android:title="@string/bot_navi_cart"
+        android:enabled="true"/>
+
+</menu>

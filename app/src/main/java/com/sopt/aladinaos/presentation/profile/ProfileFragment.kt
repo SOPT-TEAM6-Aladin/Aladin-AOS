@@ -1,12 +1,12 @@
-package com.sopt.aladinaos.presentation.home
+package com.sopt.aladinaos.presentation.profile
 
 import android.os.Bundle
 import android.view.View
 import com.sopt.aladinaos.R
-import com.sopt.aladinaos.databinding.FragmentHomeBinding
+import com.sopt.aladinaos.databinding.FragmentProfileBinding
 import com.sopt.aladinaos.util.binding.BindingFragment
 
-class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+class ProfileFragment : BindingFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }

@@ -1,11 +1,11 @@
-package com.sopt.aladinaos.presentation
+package com.sopt.aladinaos.presentation.cart
 
 import android.os.Bundle
 import com.sopt.aladinaos.R
-import com.sopt.aladinaos.databinding.ActivityMainBinding
+import com.sopt.aladinaos.databinding.ActivityCartBinding
 import com.sopt.aladinaos.util.binding.BindingActivity
 
-class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
+class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

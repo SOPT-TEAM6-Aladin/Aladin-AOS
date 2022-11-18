@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">AladinAOS</string>
-    <string name="hello_world">Hello World!</string>
+    <string name="app_name">Aladin</string>
     <string name="binding_error">Binding not initialized to reference the view.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- bottom navigation -->
+    <string name="bot_navi_profile">MY</string>
+    <string name="bot_navi_home">홈</string>
+    <string name="bot_navi_cart">장바구니</string>
+    <string name="bot_navi_error">item id(%d) cannot be selected</string>
 </resources>
