@@ -1,4 +1,4 @@
-package com.sopt.aladinaos.data.di
+package com.sopt.aladinaos.di
 
 import com.sopt.aladinaos.data.source.remote.RemoteCartDataSource
 import com.sopt.aladinaos.data.source.remote.RemoteCartDataSourceImpl
