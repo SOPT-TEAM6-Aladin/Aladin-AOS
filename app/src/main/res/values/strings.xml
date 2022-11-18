@@ -7,4 +7,7 @@
     <string name="bot_navi_home">홈</string>
     <string name="bot_navi_cart">장바구니</string>
     <string name="bot_navi_error">item id(%d) cannot be selected</string>
+    =======
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
