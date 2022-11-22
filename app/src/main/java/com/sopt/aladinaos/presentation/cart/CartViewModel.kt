@@ -21,11 +21,12 @@ class CartViewModel @Inject constructor(
     private val _cartPrice = MutableLiveData<Int>()
     val cartPrice: LiveData<Int> = _cartPrice
 
-    private val _cartSelectedAll = MutableLiveData<Boolean>()
-    val cartSelectedAll: LiveData<Boolean> = _cartSelectedAll
+    private val _cartCount = MutableLiveData(1)
+    val cartCount: LiveData<Int> = _cartCount
+
+    val cartSelectedAll = MutableLiveData(false)
 
     fun getBasket() {
-        Timber.d("getBasket 실행됨")
         viewModelScope.launch {
             cartRepository.getBasket()
                 .onSuccess { response ->

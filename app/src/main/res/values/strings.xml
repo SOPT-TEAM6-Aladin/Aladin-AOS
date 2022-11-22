@@ -10,7 +10,7 @@
 
     <!-- Cart -->
     <string name="cart_format_price">%,2d원</string>
-    <string name="cart_body_count">%1d</string>
+    <string name="cart_body_count">%02d</string>
     <string name="cart_body_minus">-</string>
     <string name="cart_body_plus">+</string>
     <string name="cart_body_content">11월 7일(월) 밤 11시 잠들기전 배송</string>

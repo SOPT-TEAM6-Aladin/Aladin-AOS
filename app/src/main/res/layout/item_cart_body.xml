@@ -93,7 +93,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:text="@string/cart_body_count"
             android:textAppearance="@style/IconSemibold1"
             android:textColor="@color/grey_4"
             app:layout_constraintBottom_toBottomOf="@id/tv_cart_body_minus"
