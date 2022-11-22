@@ -19,7 +19,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
-    private const val HEADER_AUTHORIZATION = "Authorization"
+    private const val CONTENT_TYPE = "Content-Type"
+    private const val APPLICATION_JSON = "application/json"
     private const val AUTHORIZATION = "Authorization"
     private const val USER_ID = "1"
 
@@ -33,6 +34,7 @@ object RetrofitModule {
                 proceed(
                     request()
                         .newBuilder()
+                        .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                         .addHeader(AUTHORIZATION, USER_ID)
                         .build()
                 )
