@@ -15,17 +15,31 @@
         android:layout_height="wrap_content"
         android:paddingVertical="16dp">
 
-        <CheckBox
-            android:id="@+id/cb_cart_body"
+        <ImageView
+            android:id="@+id/cart_body_tmp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:background="@null"
+            android:padding="6dp"
+            android:src="@drawable/ic_cart_back"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/cb_cart_body"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/selector_cart_check"
             android:button="@android:color/transparent"
             android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@id/cart_body_tmp"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@id/cart_body_tmp"
+            app:layout_constraintStart_toStartOf="@id/cart_body_tmp"
+            app:layout_constraintTop_toTopOf="@id/cart_body_tmp"
+            tools:text="&#8203;"/>
 
         <ImageView
             android:id="@+id/iv_cart_body_cover"
@@ -54,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{@string/cart_body_price(data.price)}"
+            android:text="@{@string/cart_format_price(data.price)}"
             android:textAppearance="@style/TitleSemibold1"
             android:textColor="@color/grey_4"
             app:layout_constraintStart_toStartOf="@id/tv_cart_body_title"

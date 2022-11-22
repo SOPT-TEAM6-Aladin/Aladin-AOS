@@ -9,9 +9,15 @@
     <string name="bot_navi_error">item id(%d) cannot be selected</string>
 
     <!-- Cart -->
-    <string name="cart_body_price">%,2d원</string>
+    <string name="cart_format_price">%,2d원</string>
     <string name="cart_body_count">%1d</string>
     <string name="cart_body_minus">-</string>
     <string name="cart_body_plus">+</string>
     <string name="cart_body_content">11월 7일(월) 밤 11시 잠들기전 배송</string>
+    <string name="cart_all">전체</string>
+    <string name="cart_price_text">상품금액</string>
+    <string name="cart_delivery_fee">배송비</string>
+    <string name="cart_0_won">0원</string>
+    <string name="cart_total_price">총 결제 예정 금액</string>
+    <string name="cart_buy">구매하기</string>
 </resources>
