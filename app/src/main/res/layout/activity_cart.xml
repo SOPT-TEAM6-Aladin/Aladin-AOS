@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.sopt.aladinaos.presentation.cart.CartViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

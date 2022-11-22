@@ -1,9 +1,6 @@
 package com.sopt.aladinaos.di
 
 import com.sopt.aladinaos.BuildConfig
-import com.sopt.aladinaos.data.service.CartService
-import com.sopt.aladinaos.data.service.DetailService
-import com.sopt.aladinaos.data.service.HomeService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,7 +37,7 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun providesHousOkHttpClient(
+    fun providesAladinOkHttpClient(
         interceptor: Interceptor
     ): OkHttpClient =
         OkHttpClient.Builder()
@@ -52,7 +49,7 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun providesHousRetrofit(
+    fun providesAladinRetrofit(
         okHttpClient: OkHttpClient
     ): Retrofit =
         Retrofit.Builder()
@@ -60,16 +57,4 @@ object RetrofitModule {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-    @Provides
-    fun provideHomeService(retrofit: Retrofit): HomeService =
-        retrofit.create(HomeService::class.java)
-
-    @Provides
-    fun provideDetailService(retrofit: Retrofit): DetailService =
-        retrofit.create(DetailService::class.java)
-
-    @Provides
-    fun provideCartService(retrofit: Retrofit): CartService =
-        retrofit.create(CartService::class.java)
 }
