@@ -11,7 +11,6 @@
         android:id="@+id/sv_detail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="-9dp"
         android:clipToPadding="false"
         app:layout_constraintBottom_toTopOf="@id/tb_detail_bottom"
         app:layout_constraintEnd_toEndOf="parent"
@@ -230,7 +229,7 @@
                     android:layout_height="1dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginTop="7dp"
-                    android:background="#eaeaea"
+                    android:background="@color/gray_light"
                     app:layout_constraintTop_toBottomOf="@id/tv_detail_price" />
 
                 <TextView
@@ -262,10 +261,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="9dp"
                     android:layout_marginTop="8dp"
-                    android:fontFamily="@font/pretendard_regular"
+                    android:textAppearance="@style/PretendardRegular14"
                     android:textColor="@color/grey_4"
                     android:text="@string/detail_delivery_fee"
-                    android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@id/view_detail_delivery_line"
                     app:layout_constraintTop_toBottomOf="@id/view_detail_price_line" />
 
@@ -317,7 +315,7 @@
                     android:layout_height="1dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginTop="7dp"
-                    android:background="#eaeaea"
+                    android:background="@color/gray_light"
                     app:layout_constraintTop_toBottomOf="@id/iv_detail_carpet_delivery" />
 
                 <TextView
@@ -326,10 +324,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="8dp"
-                    android:fontFamily="@font/pretendard_bold"
+                    android:textAppearance="@style/DetailBold1"
                     android:textColor="@color/grey_4"
                     android:text="@string/detail_ebook_label"
-                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/view_detail_carpet_delivery_line" />
 
@@ -340,10 +337,9 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="6dp"
-                    android:fontFamily="@font/pretendard_bold"
+                    android:textAppearance="@style/DetailBold2"
                     android:textColor="@color/grey_3"
                     android:text="@string/detail_ebook_alarm_msg"
-                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_detail_ebook_label" />
@@ -720,7 +716,7 @@
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="4dp"
                 android:layout_marginTop="14dp"
-                android:background="#eaeaea" />
+                android:background="@color/gray_light" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_detail_review1"
@@ -967,9 +963,9 @@
         android:id="@+id/tb_detail_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_white_fill_shadow_rect"
+        android:elevation="10dp"
         android:contentInsetStart="0dp"
-        android:paddingTop="22dp"
+        android:paddingTop="13dp"
         android:paddingBottom="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -979,7 +975,7 @@
             android:id="@+id/ll_detail_purchase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="14dp"
             android:layout_marginEnd="20dp"
             android:gravity="center_vertical">
 
