@@ -19,7 +19,7 @@
             android:id="@+id/home_editor_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_home_book_background" />
+            tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/home_editor_background_trans"
@@ -42,9 +42,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/aladin_grey_1"
-            android:layout_marginTop="148dp"
-            android:textSize="16sp"
+            android:layout_marginTop="149dp"
+            android:textAppearance="@style/TitleBold1"
+            android:textColor="@color/white"
             tools:text="기소영의 친구들" />
 
         <TextView
@@ -52,9 +52,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="171dp"
-            android:textColor="@color/aladin_grey_1"
-            android:textSize="12sp"
+            android:layout_marginTop="172dp"
+            android:textAppearance="@style/DetailRegular1"
+            android:textColor="@color/white"
             tools:text="정은주 지음, 해랑 그림" />
 
 
