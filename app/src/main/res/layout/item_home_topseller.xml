@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginEnd="14dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/iv_home_topseller_thumbnail"
+        android:layout_width="116dp"
+        android:layout_height="172dp"
+        android:scaleType="fitXY"
+        app:layout_constraintCircleRadius="4dp"
+        android:contentDescription="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_home_topseller_title"
+        android:layout_width="116dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        tools:text="브랜드로 남는다는 것"
+        android:gravity="start"
+        android:textColor="@color/gray_4"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_home_topseller_thumbnail"
+        app:layout_constraintStart_toStartOf="@+id/iv_home_topseller_thumbnail"
+        app:layout_constraintTop_toBottomOf="@+id/iv_home_topseller_thumbnail" />
+
+    <TextView
+        android:id="@+id/tv_home_topseller_author"
+        android:layout_width="116dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:textSize="11sp"
+        android:textColor="@color/gray_4"
+        app:layout_constraintEnd_toEndOf="@+id/iv_home_topseller_thumbnail"
+        app:layout_constraintStart_toStartOf="@+id/iv_home_topseller_thumbnail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_home_topseller_title"
+        tools:text="끝까지 살아남는 브랜드는 무엇이 다른가" />
+</androidx.constraintlayout.widget.ConstraintLayout>

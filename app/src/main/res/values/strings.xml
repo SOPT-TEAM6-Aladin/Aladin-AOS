@@ -10,4 +10,22 @@
     =======
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="home_search_title">\'이달의 도서\'를 검색해보세요.</string>
+    <string name="home_book_kor">국내도서</string>
+    <string name="home_book_for">외국도서</string>
+    <string name="home_ebook">e Book</string>
+    <string name="home_aladin_goods">알라딘 굿즈</string>
+    <string name="home_book_new">신간도서</string>
+    <string name="home_best">베스트</string>
+    <string name="home_event">이벤트</string>
+    <string name="home_find_book">분야찾기</string>
+    <string name="home_editor_choice">편집장의 선택</string>
+    <string name="home_top_seller">지금, 화제의 책!</string>
+    <string name="home_aladin_made_goods">알라딘이 만든 사은품</string>
+
+
+
+
+
 </resources>

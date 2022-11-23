@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginEnd="14dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/fl_home_editor"
+        android:layout_width="217dp"
+        android:layout_height="204dp">
+
+        <ImageView
+            android:id="@+id/home_editor_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_home_book_background" />
+
+        <ImageView
+            android:id="@+id/home_editor_background_trans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="114dp"
+            android:src="@drawable/ic_home_book_background_trans"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/iv_editor_thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_editor_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/gray_1"
+            android:layout_marginTop="148dp"
+            android:textSize="16sp"
+            tools:text="기소영의 친구들" />
+
+        <TextView
+            android:id="@+id/tv_editor_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="171dp"
+            android:textColor="@color/gray_1"
+            android:textSize="12sp"
+            tools:text="정은주 지음, 해랑 그림" />
+
+
+    </FrameLayout>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
