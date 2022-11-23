@@ -15,6 +15,10 @@
     <string name="profile_welcome">님, 안녕하세요!</string>
     <string name="profile_mileage_label">마일리지</string>
     <string name="profile_mileage">1,000</string>
+    <string name="profile_savings_label">적립금</string>
+    <string name="profile_savings">3,500</string>
+    <string name="profile_coupon_label">할인쿠폰</string>
+    <string name="profile_coupon">2</string>
 
     <!-- detail activity -->
     <string name="detail_delivery_fee_label">배송료</string>
