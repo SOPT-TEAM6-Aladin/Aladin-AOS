@@ -10,7 +10,7 @@ import com.sopt.aladinaos.databinding.ItemCartBodyBinding
 import com.sopt.aladinaos.util.ItemDiffCallback
 
 class CartAdapter(
-    private val updateCount: (Int, Int) -> Unit
+    private val updateCount: (cnt: Int, index: Int) -> Unit
 ) : ListAdapter<Book, CartAdapter.CartViewHolder>(
     cartDiffCallBack
 ) {
@@ -30,7 +30,7 @@ class CartAdapter(
 
     class CartViewHolder(
         val binding: ItemCartBodyBinding,
-        private val updateCount: (Int, Int) -> Unit
+        private val updateCount: (cnt: Int, index: Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Book) {
             binding.data = data
@@ -38,10 +38,14 @@ class CartAdapter(
                 tvCartBodyCount.text =
                     itemView.context.getString(R.string.cart_body_count, data.count)
                 tvCartBodyMinus.setOnClickListener {
-                    updateCount(absoluteAdapterPosition, data.count - 1)
+                    if (data.count in 2..9) {
+                        updateCount(data.count - 1, absoluteAdapterPosition)
+                    }
                 }
                 tvCartBodyPlus.setOnClickListener {
-                    updateCount(absoluteAdapterPosition, data.count + 1)
+                    if (data.count in 1..8) {
+                        updateCount(data.count + 1, absoluteAdapterPosition)
+                    }
                 }
             }
         }

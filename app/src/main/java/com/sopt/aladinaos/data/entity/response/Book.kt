@@ -13,5 +13,5 @@ data class Book(
     val discountRate: Int,
     val point: Int,
     // response 이외 데이터
-    val count: Int = 0
+    val count: Int = 1
 )
