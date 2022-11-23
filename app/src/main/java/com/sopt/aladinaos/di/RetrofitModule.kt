@@ -1,4 +1,4 @@
-package com.sopt.aladinaos.data.di
+package com.sopt.aladinaos.di
 
 import com.sopt.aladinaos.BuildConfig
 import com.sopt.aladinaos.data.service.CartService
@@ -18,7 +18,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class RetrofitModule {
+object RetrofitModule {
+    private const val HEADER_AUTHORIZATION = "Authorization"
+    private const val AUTHORIZATION = "Authorization"
+    private const val USER_ID = "1"
+
     @Provides
     @Singleton
     fun providesAladinInterceptor(
@@ -29,10 +33,6 @@ class RetrofitModule {
                 proceed(
                     request()
                         .newBuilder()
-                        .addHeader(
-                            HEADER_AUTHORIZATION,
-                            BuildConfig.DUMMY_ACCESS_TOKEN
-                        )
                         .addHeader(AUTHORIZATION, USER_ID)
                         .build()
                 )
@@ -57,7 +57,7 @@ class RetrofitModule {
         okHttpClient: OkHttpClient
     ): Retrofit =
         Retrofit.Builder()
-            .baseUrl(BuildConfig.ALADIN_URL)
+            .baseUrl(BuildConfig.ALADIN_URI)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -73,10 +73,4 @@ class RetrofitModule {
     @Provides
     fun provideCartService(retrofit: Retrofit): CartService =
         retrofit.create(CartService::class.java)
-
-    companion object {
-        private const val HEADER_AUTHORIZATION = "Authorization"
-        private const val AUTHORIZATION = "Authorization"
-        private const val USER_ID = "1"
-    }
 }
