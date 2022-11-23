@@ -641,12 +641,12 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/tv_detail_review_score_average"
+                            android:id="@+id/tv_detail_review_score_ave"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/RatingBold"
                             android:textColor="@color/blue"
-                            android:text="4.6" />
+                            android:text="@string/detail_score_ave" />
 
                         <TextView
                             android:id="@+id/tv_detail_review_score_max"
@@ -655,7 +655,7 @@
                             android:layout_marginStart="5dp"
                             android:textAppearance="@style/RatingAllBold"
                             android:textColor="@color/grey_3"
-                            android:text="/ 5.0" />
+                            android:text="@string/detail_score_max" />
                     </LinearLayout>
 
                     <ImageView

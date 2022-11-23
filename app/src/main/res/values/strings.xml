@@ -21,6 +21,8 @@
     <string name="detail_index">목차</string>
     <string name="detail_summary">줄거리</string>
     <string name="detail_review">한 줄 리뷰</string>
+    <string name="detail_score_ave">4.6</string>
+    <string name="detail_score_max">/ 5.0</string>
     <string name="detail_review_msg">80%의 구매자가\n\"추천해요\"라고 응답했어요</string>
     <string name="detail_review_write">리뷰 작성</string>
     <string name="detail_review_writer">bo***** | 2022.11.11 | 신고</string>
