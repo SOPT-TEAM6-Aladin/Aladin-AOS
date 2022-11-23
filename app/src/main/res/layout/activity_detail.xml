@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_detail"
+    android:id="@+id/cl_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.detail.DetailActivity">
@@ -13,19 +13,19 @@
         android:layout_height="0dp"
         android:layout_marginBottom="-9dp"
         android:clipToPadding="false"
-        app:layout_constraintBottom_toTopOf="@id/toolbar_detail_bottom"
+        app:layout_constraintBottom_toTopOf="@id/tb_detail_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/layout_detail_scroll"
+            android:id="@+id/ll_detail_scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_detail"
+                android:id="@+id/tb_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="26dp"
@@ -66,7 +66,7 @@
             </androidx.appcompat.widget.Toolbar>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_book_info"
+                android:id="@+id/cl_detail_book_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -152,7 +152,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:id="@+id/layout_detail_user_reaction"
+                android:id="@+id/ll_detail_user_reaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -193,7 +193,7 @@
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_sales_info"
+                android:id="@+id/cl_detail_sales_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="29dp"
@@ -371,7 +371,7 @@
 
             <!-- BookIntro Layout -->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_book_intro"
+                android:id="@+id/cl_detail_book_intro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -441,7 +441,7 @@
 
             <!-- Index Layout -->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_index"
+                android:id="@+id/cl_detail_index"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -472,7 +472,7 @@
                     tools:text="1. 일요일 밤의 비보 _5\n2. 빈자리 _22\n3. 기소영 그룹의 재결합 _32\n4. 미스터리 소녀의 비밀 _46\n5. 친구의 이름으로 _62\n6. 소영이와 영진이와 브라우니 _84\n7. 기소영 미카엘라 를 위하여 _98\n8. 졸업 앨범 _114\n9. 기소영의 친구들 _127\n\n작가의 말 _142\n작품 해설 _145" />
 
                 <LinearLayout
-                    android:id="@+id/btn_detail_more_index"
+                    android:id="@+id/ll_detail_more_index"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="4dp"
@@ -510,7 +510,7 @@
 
             <!-- Summary Layout -->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_summary"
+                android:id="@+id/cl_detail_summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -542,7 +542,7 @@
                     tools:text="같은 반 친구이자 가장 친한 그룹의 한 친구인 ‘기소영’이 교통사고로 세상을 떠났다. 엄마도, 선생님도 그렇게 말해 주었다. 하지만 채린이는 혼란스럽다. 왜 눈물이 나지 않는 것일까? 우리는 친한 사이가 아니었던 걸까? 소영이는 나에게 어떤 친구였지? 소영이 사물함 속 물건도, 게시판에 붙었던 그림도, 소영이의 이름을 부르는 아이들도 점점 사라져 가지만 ‘기소영 그룹’의 네 친구들이게 소영이의 빈자리는 여전히 남아 있다. 채린이와 친구들은 이제라도 소영이에게 제대로 된 인사를 전하기로 한다. 누군가와 영영 헤어지는 좋은 방법은 과연 무엇일까?" />
 
                 <LinearLayout
-                    android:id="@+id/btn_detail_more_summary"
+                    android:id="@+id/ll_detail_more_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="4dp"
@@ -579,7 +579,7 @@
                 android:background="@color/grey_6" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_review"
+                android:id="@+id/cl_detail_review"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -620,7 +620,7 @@
                     app:layout_constraintTop_toTopOf="@id/tv_detail_review_label" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layout_detail_review_average"
+                    android:id="@+id/cl_detail_review_average"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
@@ -631,7 +631,7 @@
                     app:layout_constraintTop_toBottomOf="@id/btn_detail_more_review">
 
                     <LinearLayout
-                        android:id="@+id/layout_detail_review_score"
+                        android:id="@+id/ll_detail_review_score"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
@@ -665,7 +665,7 @@
                         android:src="@drawable/img_detail_review_star"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layout_detail_review_score" />
+                        app:layout_constraintTop_toBottomOf="@id/ll_detail_review_score" />
 
                     <TextView
                         android:id="@+id/tv_detail_review_msg"
@@ -695,7 +695,7 @@
                     android:paddingVertical="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/layout_detail_review_average">
+                    app:layout_constraintTop_toBottomOf="@id/cl_detail_review_average">
 
                     <ImageView
                         android:id="@+id/iv_detail_write"
@@ -723,7 +723,7 @@
                 android:background="#eaeaea" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_review1"
+                android:id="@+id/cl_detail_review1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -762,7 +762,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_review2"
+                android:id="@+id/cl_detail_review2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -802,7 +802,7 @@
 
             <!-- 3 -->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_review3"
+                android:id="@+id/cl_detail_review3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -848,7 +848,7 @@
                 android:background="@color/grey_6" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_detail_aladin_info"
+                android:id="@+id/cl_detail_aladin_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/aladin_grey_1"
@@ -897,7 +897,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_detail_company" />
 
                 <LinearLayout
-                    android:id="@+id/layout_detail_bottom_btn"
+                    android:id="@+id/ll_detail_bottom_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -958,13 +958,13 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/layout_detail_bottom_btn" />
+                    app:layout_constraintTop_toBottomOf="@id/ll_detail_bottom_btn" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_detail_bottom"
+        android:id="@+id/tb_detail_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_white_fill_shadow_rect"
@@ -976,7 +976,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:id="@+id/layout_detail_purchase"
+            android:id="@+id/ll_detail_purchase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
