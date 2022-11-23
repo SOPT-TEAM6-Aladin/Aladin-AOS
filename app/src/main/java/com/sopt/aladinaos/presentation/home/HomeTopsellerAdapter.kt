@@ -1,4 +1,3 @@
 package com.sopt.aladinaos.presentation.home
 
-class HomeTopsellerAdapter {
-}
+class HomeTopsellerAdapter
