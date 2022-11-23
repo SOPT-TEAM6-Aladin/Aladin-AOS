@@ -19,6 +19,26 @@
     <string name="profile_savings">3,500</string>
     <string name="profile_coupon_label">할인쿠폰</string>
     <string name="profile_coupon">2</string>
+    <string name="profile_order_history">주문 내역</string>
+    <string name="profile_preparing">준비중</string>
+    <string name="profile_preparing_value">0</string>
+    <string name="profile_shipping">배송중</string>
+    <string name="profile_shipping_value">2</string>
+    <string name="profile_delivery_completed">배송 완료</string>
+    <string name="profile_delivery_completed_value">1</string>
+    <string name="profile_return_exchange_history">반품 / 교환 내역</string>
+    <string name="profile_return_value">1</string>
+    <string name="profile_return">반품</string>
+    <string name="profile_exchange_value">2</string>
+    <string name="profile_exchange">교환</string>
+    <string name="profile_used_history">중고 팔기 내역</string>
+    <string name="profile_total">총&#160;</string>
+    <string name="profile_five">5</string>
+    <string name="profile_tasks">건</string>
+    <string name="profile_sell_aladin_value">3</string>
+    <string name="profile_sell_aladin">알라딘에 팔기</string>
+    <string name="profile_sell_user_value">2</string>
+    <string name="profile_sell_user">회원에게 팔기</string>
 
     <!-- detail activity -->
     <string name="detail_delivery_fee_label">배송료</string>
