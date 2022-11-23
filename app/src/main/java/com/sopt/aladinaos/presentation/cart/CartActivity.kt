@@ -24,8 +24,6 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
 
     private fun initAdapter() {
         cartAdapter = CartAdapter(
-            minusOnClick = cartViewModel::initCartCountMinus,
-            plusOnClick = cartViewModel::initCartCountPlus,
             updateCount = cartViewModel::updateCartResult
         )
         binding.rvCart.adapter = cartAdapter

@@ -29,7 +29,7 @@ class CartViewModel @Inject constructor(
 
     init {
         _cartResult.value = tmpList
-        _cartCount.value = MutableList<Int>(tmpList.size){0}
+        _cartCount.value = MutableList<Int>(tmpList.size) { 0 }
     }
 
     fun getBasket() {
@@ -58,22 +58,6 @@ class CartViewModel @Inject constructor(
                 return@mapIndexed book.copy(count = count)
             }
             book
-        }
-    }
-
-    fun initCartCountMinus(index: Int) {
-        if (_cartCount.value!![index] == 1 || _cartCount.value!![index] == 10) {
-            return
-        } else {
-            _cartCount.value!![index] = _cartCount.value!![index] - 1
-        }
-    }
-
-    fun initCartCountPlus(index: Int) {
-        if (_cartCount.value!![index] == 1 || _cartCount.value!![index] == 10) {
-            return
-        } else {
-            _cartCount.value!![index].plus(1)
         }
     }
 }
