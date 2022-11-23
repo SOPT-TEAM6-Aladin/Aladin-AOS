@@ -5,6 +5,6 @@ import com.sopt.aladinaos.data.entity.response.Book
 import retrofit2.http.GET
 
 interface CartService {
-    @GET("basket")
+    @GET("api/basket")
     suspend fun getBasket(): BaseResponse<List<Book>>
 }

@@ -43,13 +43,13 @@
 
         <ImageView
             android:id="@+id/iv_cart_body_cover"
-            setImage="@{data.cover}"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             app:layout_constraintStart_toEndOf="@id/cb_cart_body"
             app:layout_constraintTop_toTopOf="@id/cb_cart_body"
-            tools:src="@drawable/shape_grey4_fill_0_rect" />
+            android:src="@drawable/shape_grey4_fill_0_rect" />
 
         <TextView
             android:id="@+id/tv_cart_body_title"

@@ -17,7 +17,7 @@ import javax.inject.Singleton
 object RetrofitModule {
     private const val CONTENT_TYPE = "Content-Type"
     private const val APPLICATION_JSON = "application/json"
-    private const val AUTHORIZATION = "Authorization"
+    private const val AUTHORIZATION = "userId"
     private const val USER_ID = "1"
 
     @Provides

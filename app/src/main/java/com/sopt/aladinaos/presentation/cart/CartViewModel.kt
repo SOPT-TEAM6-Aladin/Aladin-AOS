@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopt.aladinaos.data.entity.response.Book
 import com.sopt.aladinaos.data.repository.CartRepository
+import com.sopt.aladinaos.presentation.cart.CartActivity.Companion.tmpList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -18,13 +19,18 @@ class CartViewModel @Inject constructor(
     private val _cartResult = MutableLiveData<List<Book>>()
     val cartResult: LiveData<List<Book>> = _cartResult
 
-    private val _cartPrice = MutableLiveData<Int>()
-    val cartPrice: LiveData<Int> = _cartPrice
+    private val _cartTotalPrice = MutableLiveData<Int>()
+    val cartTotalPrice: LiveData<Int> = _cartTotalPrice
 
-    private val _cartCount = MutableLiveData(1)
-    val cartCount: LiveData<Int> = _cartCount
+    private val _cartCount = MutableLiveData<MutableList<Int>>()
+    val cartCount: LiveData<MutableList<Int>> = _cartCount
 
     val cartSelectedAll = MutableLiveData(false)
+
+    init {
+        _cartResult.value = tmpList
+        _cartCount.value = MutableList<Int>(tmpList.size){0}
+    }
 
     fun getBasket() {
         viewModelScope.launch {
@@ -35,6 +41,39 @@ class CartViewModel @Inject constructor(
                 }.onFailure { throwable ->
                     Timber.e(throwable.message)
                 }
+        }
+    }
+
+    fun calculateTotalPrice() {
+        var count = 0
+        _cartResult.value!!.forEach { book ->
+            count += book.price * book.count
+        }
+        _cartTotalPrice.value = count
+    }
+
+    fun updateCartResult(count: Int, index: Int) {
+        _cartResult.value = cartResult.value!!.mapIndexed { i, book ->
+            if (i == index) {
+                return@mapIndexed book.copy(count = count)
+            }
+            book
+        }
+    }
+
+    fun initCartCountMinus(index: Int) {
+        if (_cartCount.value!![index] == 1 || _cartCount.value!![index] == 10) {
+            return
+        } else {
+            _cartCount.value!![index] = _cartCount.value!![index] - 1
+        }
+    }
+
+    fun initCartCountPlus(index: Int) {
+        if (_cartCount.value!![index] == 1 || _cartCount.value!![index] == 10) {
+            return
+        } else {
+            _cartCount.value!![index].plus(1)
         }
     }
 }

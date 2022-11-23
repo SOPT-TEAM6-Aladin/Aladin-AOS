@@ -4,11 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.sopt.aladinaos.R
 import com.sopt.aladinaos.data.entity.response.Book
 import com.sopt.aladinaos.databinding.ItemCartBodyBinding
 import com.sopt.aladinaos.util.ItemDiffCallback
 
-class CartAdapter() :
+class CartAdapter(
+    private val minusOnClick: (Int) -> Unit,
+    private val plusOnClick: (Int) -> Unit,
+    private val updateCount: (Int, Int) -> Unit
+) :
     ListAdapter<Book, CartAdapter.CartViewHolder>(
         cartDiffCallBack
     ) {
@@ -19,7 +24,7 @@ class CartAdapter() :
                 parent,
                 false
             )
-        return CartViewHolder(binding)
+        return CartViewHolder(binding, minusOnClick, plusOnClick, updateCount)
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
@@ -27,11 +32,25 @@ class CartAdapter() :
     }
 
     class CartViewHolder(
-        val binding: ItemCartBodyBinding
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+        val binding: ItemCartBodyBinding,
+        private val minusOnClick: (Int) -> Unit,
+        private val plusOnClick: (Int) -> Unit,
+        private val updateCount: (Int, Int) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Book) {
             binding.data = data
+            with(binding) {
+                tvCartBodyCount.text =
+                    itemView.context.getString(R.string.cart_body_count, data.count)
+                tvCartBodyMinus.setOnClickListener {
+                    minusOnClick(absoluteAdapterPosition)
+                    updateCount(absoluteAdapterPosition, data.count - 1)
+                }
+                tvCartBodyPlus.setOnClickListener {
+                    plusOnClick(absoluteAdapterPosition)
+                    updateCount(absoluteAdapterPosition, data.count + 1)
+                }
+            }
         }
     }
 

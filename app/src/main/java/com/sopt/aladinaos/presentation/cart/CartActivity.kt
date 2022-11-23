@@ -3,6 +3,7 @@ package com.sopt.aladinaos.presentation.cart
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.sopt.aladinaos.R
+import com.sopt.aladinaos.data.entity.response.Book
 import com.sopt.aladinaos.databinding.ActivityCartBinding
 import com.sopt.aladinaos.util.binding.BindingActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -10,20 +11,33 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart) {
     private val cartViewModel: CartViewModel by viewModels()
-    private val cartAdapter = CartAdapter()
+    private lateinit var cartAdapter: CartAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = cartViewModel
-        cartViewModel.getBasket()
+        // cartViewModel.getBasket()
         initAdapter()
         initBackBtnClickListener()
+        initCartListObserve()
     }
 
     private fun initAdapter() {
+        cartAdapter = CartAdapter(
+            minusOnClick = cartViewModel::initCartCountMinus,
+            plusOnClick = cartViewModel::initCartCountPlus,
+            updateCount = cartViewModel::updateCartResult
+        )
         binding.rvCart.adapter = cartAdapter
-        cartViewModel.cartResult.observe(this) { result ->
-            cartAdapter.submitList(result)
+//        cartViewModel.cartResult.observe(this) { result ->
+        cartAdapter.submitList(tmpList)
+//        }
+    }
+
+    private fun initCartListObserve() {
+        cartViewModel.cartResult.observe(this) { book ->
+            cartAdapter.submitList(book)
+            cartViewModel.calculateTotalPrice()
         }
     }
 
@@ -31,5 +45,16 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
         binding.btnCartBack.setOnClickListener {
             finish()
         }
+    }
+
+    companion object {
+        val tmpList = listOf(
+            Book(1, "코틀린을 배워보자", "0", 10800, 10, 100),
+            Book(1, "코틀린을 배워보자", "0", 10800, 10, 100),
+            Book(1, "코틀린을 배워보자", "0", 10800, 10, 100),
+            Book(1, "코틀린을 배워보자", "0", 10800, 10, 100),
+            Book(1, "코틀린을 배워보자", "0", 10800, 10, 100),
+            Book(1, "코틀린을 배워보자", "0", 10800, 10, 100)
+        )
     }
 }
