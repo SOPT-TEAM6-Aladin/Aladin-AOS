@@ -163,6 +163,12 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="PretendardRegular14">
+        <item name="android:fontFamily">@font/pretendard</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
     <style name="ReviewIdBold">
         <item name="android:fontFamily">@font/pretendard</item>
         <item name="android:textStyle">bold</item>

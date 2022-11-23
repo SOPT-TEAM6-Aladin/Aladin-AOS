@@ -15,4 +15,32 @@
     <string name="profile_welcome">님, 안녕하세요!</string>
     <string name="profile_mileage_label">마일리지</string>
     <string name="profile_mileage">1,000</string>
+
+    <!-- detail activity -->
+    <string name="detail_delivery_fee_label">배송료</string>
+    <string name="detail_delivery_fee">무료</string>
+    <string name="detail_carpet_delivery">양탄자 배송</string>
+    <string name="detail_carpet_delivery_date">내일(목) 새벽 7시 전 도착 보장</string>
+    <string name="detail_ebook_label">전자책</string>
+    <string name="detail_ebook_alarm_msg">eBook이 출간되면 알려드립니다.</string>
+    <string name="detail_ebook_alarm_btn">eBook 출간 알림 신청</string>
+    <string name="detail_book_introduction">책소개</string>
+    <string name="detail_show_more">더보기</string>
+    <string name="detail_index">목차</string>
+    <string name="detail_summary">줄거리</string>
+    <string name="detail_review">한 줄 리뷰</string>
+    <string name="detail_score_ave">4.6</string>
+    <string name="detail_score_max">/ 5.0</string>
+    <string name="detail_review_msg">80%의 구매자가\n\"추천해요\"라고 응답했어요</string>
+    <string name="detail_review_write">리뷰 작성</string>
+    <string name="detail_review_writer">bo***** | 2022.11.11 | 신고</string>
+    <string name="detail_review_content">내용이 너무 인상깊었습니다.\n이 책 추천드립니다~!</string>
+    <string name="detail_company">(주)알라딘커뮤니케이션</string>
+    <string name="detail_service_center">고객센터 1544-1234</string>
+    <string name="detail_logout">로그아웃</string>
+    <string name="detail_contact">1:1 문의</string>
+    <string name="detail_faq">FAQ</string>
+    <string name="detail_store_info">중고매장 위치, 영업시간 안내</string>
+    <string name="detail_cart">장바구니</string>
+    <string name="detail_purchase">구매하기</string>
 </resources>
