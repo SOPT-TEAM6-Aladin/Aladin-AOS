@@ -124,7 +124,7 @@
                 android:src="@drawable/img_home_banner" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/ll_home_category"
+                android:id="@+id/ll_home_category1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -166,6 +166,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/btn_home_category_icon2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -185,12 +186,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_home_category_detail3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="40dp"
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/btn_home_category_icon3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -199,6 +202,7 @@
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                     <TextView
+                        android:id="@+id/tv_home_home_category_title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
@@ -208,12 +212,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_home_category_detail4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/btn_home_category_icon4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -222,6 +228,7 @@
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
+                        android:id="@+id/tv_home_home_category_title4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
@@ -235,6 +242,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_home_category2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -242,12 +250,14 @@
                 android:paddingTop="30dp">
 
                 <LinearLayout
+                    android:id="@+id/ll_home_category_detail5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="49dp"
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/btn_home_category_icon5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -256,6 +266,7 @@
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                     <TextView
+                        android:id="@+id/tv_home_home_category_title5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
@@ -267,12 +278,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_home_category_detail6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="48dp"
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/btn_home_category_icon6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -281,6 +294,7 @@
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
+                        android:id="@+id/tv_home_home_category_title6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
@@ -291,12 +305,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_home_category_detail7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="48dp"
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/btn_home_category_icon7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -305,6 +321,7 @@
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
+                        android:id="@+id/tv_home_home_category_title7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
@@ -314,12 +331,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_home_category_detail8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/btn_home_category_icon8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -328,6 +347,7 @@
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
+                        android:id="@+id/tv_home_home_category_title8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
@@ -465,6 +485,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
+                    android:id="@+id/btn_home_back3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
@@ -477,7 +498,7 @@
                     app:layout_constraintTop_toTopOf="@+id/tv_home_goods" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/iv_home_goods_banner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
