@@ -7,4 +7,12 @@
     <string name="bot_navi_home">홈</string>
     <string name="bot_navi_cart">장바구니</string>
     <string name="bot_navi_error">item id(%d) cannot be selected</string>
+
+    <!-- profile fragment -->
+    <string name="profile_level_label">LV.</string>
+    <string name="profile_level">3</string>
+    <string name="profile_nickname">램프의 지니요정</string>
+    <string name="profile_welcome">님, 안녕하세요!</string>
+    <string name="profile_mileage_label">마일리지</string>
+    <string name="profile_mileage">1,000</string>
 </resources>
