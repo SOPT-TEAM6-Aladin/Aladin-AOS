@@ -142,7 +142,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_home_book_kor"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                     <TextView
                         android:id="@+id/tv_home_home_category_title1"
@@ -166,7 +167,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_home_book_foreign"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
                         android:id="@+id/tv_home_home_category_title2"
@@ -189,7 +191,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_home_ebook"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -210,7 +213,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_home_goods"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -242,7 +246,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_home_new"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -264,7 +269,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_home_best"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -286,7 +292,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_home_event"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -307,7 +314,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_home_category"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -326,7 +334,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="30dp"
-                android:background="@color/gray_1" />
+                android:background="@color/aladin_grey_1" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_home_editor"
@@ -344,31 +352,34 @@
                     android:src="@drawable/ic_editor_selection"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_home_editor_title"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_home_editor_title" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_home_editor_title"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                 <TextView
                     android:id="@+id/tv_home_editor_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="34dp"
                     android:text="@string/home_editor_choice"
-                    android:textColor="@color/gray_4"
+                    android:textColor="@color/grey_4"
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/btn_home_selection"
-                    tools:layout_editor_absoluteY="34dp" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
                     android:id="@+id/btn_home_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@null"
                     android:layout_marginEnd="20dp"
-                    android:paddingVertical="7dp"
                     android:background="@null"
+                    android:contentDescription="@null"
+                    android:paddingVertical="7dp"
                     android:src="@drawable/ic_home_back"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_home_editor_title"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_home_editor_title" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_home_editor_title"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_home_editor"
@@ -396,7 +407,7 @@
                     android:layout_marginTop="54dp"
                     android:layout_marginStart="20dp"
                     android:text="@string/home_top_seller"
-                    android:textColor="@color/gray_4"
+                    android:textColor="@color/grey_4"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -441,7 +452,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="54dp"
                     android:text="@string/home_aladin_made_goods"
-                    android:textColor="@color/gray_4"
+                    android:textColor="@color/grey_4"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -456,6 +467,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/tv_home_goods"
                     app:layout_constraintTop_toTopOf="@+id/tv_home_goods"
                     app:layout_constraintRight_toRightOf="parent"
+                    android:contentDescription="@null"
                     />
 
                 <ImageView
@@ -467,7 +479,9 @@
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_home_goods_banner"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_home_goods" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_home_goods"
+                    android:contentDescription="@null"
+                    />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
