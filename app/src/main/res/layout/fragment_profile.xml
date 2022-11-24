@@ -28,7 +28,7 @@
                     android:id="@+id/cl_profile_user_info_wrapper"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#e8eaf2"
+                    android:background="@color/light_blue"
                     android:paddingBottom="32dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
