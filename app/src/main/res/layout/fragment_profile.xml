@@ -149,7 +149,7 @@
                             app:layout_constraintTop_toTopOf="@id/ll_profile_mileage" />
 
                         <LinearLayout
-                            android:id="@+id/ll_profile_savings"
+                            android:id="@+id/ll_profile_reserves"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="18dp"
@@ -159,30 +159,30 @@
                             app:layout_constraintTop_toBottomOf="@id/view_profile_user_info_line">
 
                             <TextView
-                                android:id="@+id/tv_profile_savings_label"
+                                android:id="@+id/tv_profile_reserves_label"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/profile_savings_label"
+                                android:text="@string/profile_reserves_label"
                                 android:textAppearance="@style/PretendardRegular14"
                                 android:textColor="@color/grey_4" />
 
                             <TextView
-                                android:id="@+id/tv_profile_savings_value"
+                                android:id="@+id/tv_profile_reserves_value"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="9dp"
-                                android:text="@string/profile_savings"
+                                android:text="@string/profile_reserves"
                                 android:textAppearance="@style/DetailMedium18Sp"
                                 android:textColor="@color/blue" />
                         </LinearLayout>
 
                         <View
-                            android:id="@+id/view_profile_savings_line"
+                            android:id="@+id/view_profile_reserves_line"
                             android:layout_width="1dp"
                             android:layout_height="0dp"
                             android:background="@color/gray_light"
-                            app:layout_constraintBottom_toBottomOf="@id/ll_profile_savings"
-                            app:layout_constraintTop_toTopOf="@id/ll_profile_savings" />
+                            app:layout_constraintBottom_toBottomOf="@id/ll_profile_reserves"
+                            app:layout_constraintTop_toTopOf="@id/ll_profile_reserves" />
 
                         <LinearLayout
                             android:id="@+id/ll_profile_coupon"
@@ -218,7 +218,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="18dp"
                             android:layout_marginBottom="13dp"
-                            app:constraint_referenced_ids="ll_profile_mileage,view_profile_mileage_line,ll_profile_savings,view_profile_savings_line,ll_profile_coupon"
+                            app:constraint_referenced_ids="ll_profile_mileage,view_profile_mileage_line,ll_profile_reserves,view_profile_reserves_line,ll_profile_coupon"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
