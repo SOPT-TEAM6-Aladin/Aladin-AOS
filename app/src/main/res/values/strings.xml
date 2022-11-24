@@ -7,10 +7,8 @@
     <string name="bot_navi_home">홈</string>
     <string name="bot_navi_cart">장바구니</string>
     <string name="bot_navi_error">item id(%d) cannot be selected</string>
-    =======
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--    home fragment-->
     <string name="home_search_title">\'이달의 도서\'를 검색해보세요.</string>
     <string name="home_book_kor">국내도서</string>
     <string name="home_book_for">외국도서</string>
@@ -23,9 +21,4 @@
     <string name="home_editor_choice">편집장의 선택</string>
     <string name="home_top_seller">지금, 화제의 책!</string>
     <string name="home_aladin_made_goods">알라딘이 만든 사은품</string>
-
-
-
-
-
 </resources>

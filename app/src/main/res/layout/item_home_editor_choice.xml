@@ -2,40 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginEnd="14dp"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="14dp">
 
     <FrameLayout
         android:id="@+id/fl_home_editor"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="217dp"
-        android:layout_height="204dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/home_editor_background"
+            android:id="@+id/iv_home_editor_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
-            android:id="@+id/home_editor_background_trans"
+            android:id="@+id/iv_home_editor_background_trans"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="114dp"
-            android:src="@drawable/ic_home_book_background_trans"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_home_book_background_trans" />
 
-        <ImageView
-            android:id="@+id/iv_editor_thumbnail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_gravity="center_horizontal"
-            tools:srcCompat="@tools:sample/avatars" />
+
 
         <TextView
             android:id="@+id/tv_editor_title"
@@ -59,12 +53,4 @@
 
 
     </FrameLayout>
-
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,11 +6,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-
     <ImageView
         android:id="@+id/iv_home_topseller_thumbnail"
-        android:layout_width="116dp"
-        android:layout_height="172dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:scaleType="fitXY"
         app:layout_constraintCircleRadius="4dp"
         android:contentDescription="@null"
@@ -24,12 +23,12 @@
         android:layout_width="116dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        tools:text="브랜드로 남는다는 것"
         android:gravity="start"
         android:textAppearance="@style/TitleSemibold1"
         app:layout_constraintEnd_toEndOf="@+id/iv_home_topseller_thumbnail"
         app:layout_constraintStart_toStartOf="@+id/iv_home_topseller_thumbnail"
-        app:layout_constraintTop_toBottomOf="@+id/iv_home_topseller_thumbnail" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_home_topseller_thumbnail"
+        tools:text="브랜드로 남는다는 것" />
 
     <TextView
         android:id="@+id/tv_home_topseller_author"
