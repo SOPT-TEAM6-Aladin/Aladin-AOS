@@ -3,13 +3,10 @@ package com.sopt.aladinaos.presentation.cart
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.sopt.aladinaos.data.entity.response.Book
 import com.sopt.aladinaos.data.repository.CartRepository
 import com.sopt.aladinaos.presentation.cart.CartActivity.Companion.tmpList
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -29,9 +26,10 @@ class CartViewModel @Inject constructor(
 
     init {
         _cartResult.value = tmpList
-        _cartCount.value = MutableList<Int>(tmpList.size) { 0 }
+        _cartCount.value = MutableList<Int>(tmpList.size) { 1 }
     }
 
+/*  // 서버 구현 시 호출할 함수
     fun getBasket() {
         viewModelScope.launch {
             cartRepository.getBasket()
@@ -43,21 +41,25 @@ class CartViewModel @Inject constructor(
                 }
         }
     }
+*/
 
     fun calculateTotalPrice() {
-        var count = 0
-        _cartResult.value!!.forEach { book ->
-            count += book.price * book.count
+        var totalPrice = 0
+        for (i in 0 until _cartResult.value!!.size) {
+            totalPrice = _cartResult.value!![i].price * _cartCount.value!![i]
         }
-        _cartTotalPrice.value = count
+        _cartTotalPrice.value = totalPrice
     }
 
-    fun updateCartResult(count: Int, index: Int) {
-        _cartResult.value = cartResult.value!!.mapIndexed { i, book ->
-            if (i == index) {
-                return@mapIndexed book.copy(count = count)
-            }
-            book
-        }
+    fun setCount(index: Int): Int {
+        return _cartCount.value!![index]
+    }
+
+    fun minusOnClick(index: Int) {
+        _cartCount.value!![index] = _cartCount.value!![index] - 1
+    }
+
+    fun plusOnClick(index: Int) {
+        _cartCount.value!![index] = _cartCount.value!![index] + 1
     }
 }

@@ -10,7 +10,9 @@ import com.sopt.aladinaos.databinding.ItemCartBodyBinding
 import com.sopt.aladinaos.util.ItemDiffCallback
 
 class CartAdapter(
-    private val updateCount: (cnt: Int, index: Int) -> Unit
+    private val setCount: (Int) -> Int,
+    private val plusOnClick: (Int) -> Unit,
+    private val minusOnClick: (Int) -> Unit
 ) : ListAdapter<Book, CartAdapter.CartViewHolder>(
     cartDiffCallBack
 ) {
@@ -21,7 +23,7 @@ class CartAdapter(
                 parent,
                 false
             )
-        return CartViewHolder(binding, updateCount)
+        return CartViewHolder(binding, setCount, plusOnClick, minusOnClick)
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
@@ -30,21 +32,24 @@ class CartAdapter(
 
     class CartViewHolder(
         val binding: ItemCartBodyBinding,
-        private val updateCount: (cnt: Int, index: Int) -> Unit
+        private val setCount: (Int) -> Int,
+        private val plusOnClick: (Int) -> Unit,
+        private val minusOnClick: (Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Book) {
             binding.data = data
             with(binding) {
+                val count = setCount(absoluteAdapterPosition)
                 tvCartBodyCount.text =
-                    itemView.context.getString(R.string.cart_body_count, data.count)
+                    itemView.context.getString(R.string.cart_body_count, count)
                 tvCartBodyMinus.setOnClickListener {
-                    if (data.count in 2..9) {
-                        updateCount(data.count - 1, absoluteAdapterPosition)
+                    if (count in 2..9) {
+                        minusOnClick(absoluteAdapterPosition)
                     }
                 }
                 tvCartBodyPlus.setOnClickListener {
-                    if (data.count in 1..8) {
-                        updateCount(data.count + 1, absoluteAdapterPosition)
+                    if (count in 1..8) {
+                        plusOnClick(absoluteAdapterPosition)
                     }
                 }
             }

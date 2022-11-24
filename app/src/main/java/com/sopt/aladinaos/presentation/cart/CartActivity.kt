@@ -2,6 +2,7 @@ package com.sopt.aladinaos.presentation.cart
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.sopt.aladinaos.R
 import com.sopt.aladinaos.data.entity.response.Book
 import com.sopt.aladinaos.databinding.ActivityCartBinding
@@ -24,12 +25,26 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
 
     private fun initAdapter() {
         cartAdapter = CartAdapter(
-            updateCount = cartViewModel::updateCartResult
+            setCount = cartViewModel::setCount,
+            plusOnClick = ::plusOnClick,
+            minusOnClick = ::minusOnClick
         )
         binding.rvCart.adapter = cartAdapter
-//        cartViewModel.cartResult.observe(this) { result ->
+        val animator = binding.rvCart.itemAnimator
+        if (animator is SimpleItemAnimator) {
+            animator.supportsChangeAnimations = false
+        }
         cartAdapter.submitList(tmpList)
-//        }
+    }
+
+    private fun plusOnClick(index: Int) {
+        cartViewModel.plusOnClick(index)
+        cartAdapter.notifyItemChanged(index)
+    }
+
+    private fun minusOnClick(index: Int) {
+        cartViewModel.minusOnClick(index)
+        cartAdapter.notifyItemChanged(index)
     }
 
     private fun initCartListObserve() {

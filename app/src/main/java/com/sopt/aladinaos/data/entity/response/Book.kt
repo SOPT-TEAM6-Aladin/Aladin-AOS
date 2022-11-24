@@ -11,7 +11,5 @@ data class Book(
     val price: Int,
     @SerialName("discount_rate")
     val discountRate: Int,
-    val point: Int,
-    // response 이외 데이터
-    val count: Int = 1
+    val point: Int
 )
