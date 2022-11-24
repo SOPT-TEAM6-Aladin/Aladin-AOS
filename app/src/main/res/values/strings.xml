@@ -22,6 +22,38 @@
     <string name="home_top_seller">지금, 화제의 책!</string>
     <string name="home_aladin_made_goods">알라딘이 만든 사은품</string>
 
+    <!-- profile fragment -->
+    <string name="profile_level_label">LV.</string>
+    <string name="profile_level">3</string>
+    <string name="profile_nickname">램프의 지니요정</string>
+    <string name="profile_welcome">님, 안녕하세요!</string>
+    <string name="profile_mileage_label">마일리지</string>
+    <string name="profile_mileage">1,000</string>
+    <string name="profile_reserves_label">적립금</string>
+    <string name="profile_reserves">3,500</string>
+    <string name="profile_coupon_label">할인쿠폰</string>
+    <string name="profile_coupon">2</string>
+    <string name="profile_order_history">주문 내역</string>
+    <string name="profile_preparing">준비중</string>
+    <string name="profile_preparing_value">0</string>
+    <string name="profile_shipping">배송중</string>
+    <string name="profile_shipping_value">2</string>
+    <string name="profile_delivery_completed">배송 완료</string>
+    <string name="profile_delivery_completed_value">1</string>
+    <string name="profile_return_exchange_history">반품 / 교환 내역</string>
+    <string name="profile_return_value">1</string>
+    <string name="profile_return">반품</string>
+    <string name="profile_exchange_value">2</string>
+    <string name="profile_exchange">교환</string>
+    <string name="profile_used_history">중고 팔기 내역</string>
+    <string name="profile_total">총&#160;</string>
+    <string name="profile_five">5</string>
+    <string name="profile_tasks">건</string>
+    <string name="profile_sell_aladin_value">3</string>
+    <string name="profile_sell_aladin">알라딘에 팔기</string>
+    <string name="profile_sell_user_value">2</string>
+    <string name="profile_sell_user">회원에게 팔기</string>
+
     <!-- detail activity -->
     <string name="detail_delivery_fee_label">배송료</string>
     <string name="detail_delivery_fee">무료</string>
