@@ -258,7 +258,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/ll_profile_order_history_detail"
+                        android:id="@+id/cl_profile_order_history_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
@@ -383,7 +383,7 @@
                         android:textAppearance="@style/TitleSemibold18Sp"
                         android:textColor="@color/grey_4"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ll_profile_order_history_detail" />
+                        app:layout_constraintTop_toBottomOf="@id/cl_profile_order_history_detail" />
 
                     <ImageButton
                         android:id="@+id/btn_profile_more_return_exchange_history"
@@ -394,10 +394,10 @@
                         android:background="@null"
                         android:src="@drawable/ic_profile_more"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ll_profile_order_history_detail" />
+                        app:layout_constraintTop_toBottomOf="@id/cl_profile_order_history_detail" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/ll_profile_return_exchange_history_detail"
+                        android:id="@+id/cl_profile_return_exchange_history_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
@@ -488,7 +488,7 @@
                         android:textAppearance="@style/TitleSemibold18Sp"
                         android:textColor="@color/grey_4"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ll_profile_return_exchange_history_detail" />
+                        app:layout_constraintTop_toBottomOf="@id/cl_profile_return_exchange_history_detail" />
 
                     <ImageButton
                         android:id="@+id/btn_profile_more_used_history"
@@ -499,10 +499,10 @@
                         android:background="@null"
                         android:src="@drawable/ic_profile_more"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ll_profile_return_exchange_history_detail" />
+                        app:layout_constraintTop_toBottomOf="@id/cl_profile_return_exchange_history_detail" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/ll_profile_used_history_detail"
+                        android:id="@+id/cl_profile_used_history_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
