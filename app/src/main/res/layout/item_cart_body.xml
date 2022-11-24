@@ -16,7 +16,7 @@
         android:paddingVertical="16dp">
 
         <ImageView
-            android:id="@+id/cart_body_tmp"
+            android:id="@+id/iv_cart_body_tmp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -34,12 +34,12 @@
             android:background="@drawable/selector_cart_check"
             android:button="@android:color/transparent"
             android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="@id/cart_body_tmp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_cart_body_tmp"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="@id/cart_body_tmp"
-            app:layout_constraintStart_toStartOf="@id/cart_body_tmp"
-            app:layout_constraintTop_toTopOf="@id/cart_body_tmp"
-            tools:text="&#8203;"/>
+            app:layout_constraintEnd_toEndOf="@id/iv_cart_body_tmp"
+            app:layout_constraintStart_toStartOf="@id/iv_cart_body_tmp"
+            app:layout_constraintTop_toTopOf="@id/iv_cart_body_tmp"
+            tools:text="&#8203;" />
 
         <ImageView
             android:id="@+id/iv_cart_body_cover"
@@ -47,9 +47,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:src="@drawable/shape_grey4_fill_0_rect"
             app:layout_constraintStart_toEndOf="@id/cb_cart_body"
-            app:layout_constraintTop_toTopOf="@id/cb_cart_body"
-            android:src="@drawable/shape_grey4_fill_0_rect" />
+            app:layout_constraintTop_toTopOf="@id/cb_cart_body" />
 
         <TextView
             android:id="@+id/tv_cart_body_title"
@@ -114,6 +114,7 @@
             app:layout_constraintTop_toTopOf="@id/tv_cart_body_count" />
 
         <TextView
+            android:id="@+id/tv_cart_body_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
