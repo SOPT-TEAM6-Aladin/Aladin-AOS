@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.sopt.aladinaos.presentation.cart.CartViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,11 +16,186 @@
         android:layout_height="match_parent"
         tools:context=".presentation.cart.CartActivity">
 
+        <ImageButton
+            android:id="@+id/btn_cart_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:background="@null"
+            android:padding="6dp"
+            android:src="@drawable/ic_cart_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
+            android:id="@+id/tv_cart_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bot_navi_cart"
+            android:textAppearance="@style/BigtitleBold1"
+            android:textColor="@color/grey_4"
+            app:layout_constraintBottom_toBottomOf="@id/btn_cart_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_cart_back" />
+
+        <CheckBox
+            android:id="@+id/cb_cart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/selector_cart_check"
+            android:button="@android:color/transparent"
+            android:checked="@{vm.cartSelectedAll}"
+            android:clickable="true"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/btn_cart_back"
+            app:layout_constraintStart_toStartOf="@id/btn_cart_back"
+            app:layout_constraintTop_toBottomOf="@id/btn_cart_back" />
+
+        <TextView
+            android:id="@+id/tv_cart_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:text="@string/cart_all"
+            android:textAppearance="@style/TitleMedium"
+            android:textColor="@color/grey_4"
+            app:layout_constraintBottom_toBottomOf="@id/cb_cart"
+            app:layout_constraintStart_toEndOf="@id/cb_cart"
+            app:layout_constraintTop_toTopOf="@id/cb_cart" />
+
+        <View
+            android:id="@+id/view_cart_top"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/bot_navi_cart" />
+            android:layout_height="4dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/aladin_grey_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cart_all" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:overScrollMode="always"
+            android:paddingBottom="50dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/view_cart_middle"
+            app:layout_constraintTop_toBottomOf="@id/view_cart_top"
+            app:layout_constraintVertical_bias="0.0"
+            tools:itemCount="5"
+            tools:layout_editor_absoluteX="0dp"
+            tools:listitem="@layout/item_cart_body" />
+
+        <View
+            android:id="@+id/view_cart_middle"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/aladin_grey_1"
+            app:layout_constraintBottom_toTopOf="@id/tv_cart_price_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_cart_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/cart_price_text"
+            android:textAppearance="@style/TitleSemibold2"
+            android:textColor="@color/grey_4"
+            app:layout_constraintBottom_toTopOf="@id/tv_cart_delivery_fee_text"
+            app:layout_constraintStart_toStartOf="@id/cb_cart" />
+
+        <TextView
+            android:id="@+id/tv_cart_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="@{@string/cart_format_price(vm.cartTotalPrice)}"
+            android:textAppearance="@style/PriceSemibold"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/tv_cart_price_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_cart_price_text"
+            tools:text="10,800원" />
+
+        <TextView
+            android:id="@+id/tv_cart_delivery_fee_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/cart_delivery_fee"
+            android:textAppearance="@style/TitleSemibold2"
+            android:textColor="@color/grey_4"
+            app:layout_constraintBottom_toTopOf="@id/view_cart_bottom"
+            app:layout_constraintStart_toStartOf="@id/tv_cart_price_text" />
+
+        <TextView
+            android:id="@+id/tv_cart_delivery_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cart_0_won"
+            android:textAppearance="@style/PriceSemibold"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/tv_cart_delivery_fee_text"
+            app:layout_constraintEnd_toEndOf="@id/tv_cart_price"
+            app:layout_constraintTop_toTopOf="@id/tv_cart_delivery_fee_text" />
+
+        <View
+            android:id="@+id/view_cart_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="19dp"
+            android:background="@color/aladin_grey_1"
+            app:layout_constraintBottom_toTopOf="@id/tv_cart_total_price_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_cart_total_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/cart_total_price"
+            android:textAppearance="@style/TitleSemibold1"
+            android:textColor="@color/grey_4"
+            app:layout_constraintBottom_toTopOf="@id/btn_cart_buy"
+            app:layout_constraintStart_toStartOf="@id/tv_cart_delivery_fee_text" />
+
+        <TextView
+            android:id="@+id/tv_cart_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/cart_format_price(vm.cartTotalPrice)}"
+            android:textAppearance="@style/BigtitleBold1"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/tv_cart_total_price_text"
+            app:layout_constraintEnd_toEndOf="@id/tv_cart_delivery_fee"
+            app:layout_constraintTop_toTopOf="@id/tv_cart_total_price_text"
+            tools:text="10,800원" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cart_buy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/shape_blue_fill_12_rect"
+            android:text="@string/cart_buy"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

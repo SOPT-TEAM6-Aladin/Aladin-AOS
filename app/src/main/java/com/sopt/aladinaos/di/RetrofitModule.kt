@@ -1,10 +1,6 @@
 package com.sopt.aladinaos.di
 
 import com.sopt.aladinaos.BuildConfig
-import com.sopt.aladinaos.data.service.CartService
-import com.sopt.aladinaos.data.service.DetailService
-import com.sopt.aladinaos.data.service.HomeService
-import com.sopt.aladinaos.data.source.local.LocalDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,20 +15,20 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
-    private const val HEADER_AUTHORIZATION = "Authorization"
-    private const val AUTHORIZATION = "Authorization"
+    private const val CONTENT_TYPE = "Content-Type"
+    private const val APPLICATION_JSON = "application/json"
+    private const val AUTHORIZATION = "userId"
     private const val USER_ID = "1"
 
     @Provides
     @Singleton
-    fun providesAladinInterceptor(
-        localDataSource: LocalDataSource
-    ): Interceptor =
+    fun providesAladinInterceptor(): Interceptor =
         Interceptor { chain ->
             with(chain) {
                 proceed(
                     request()
                         .newBuilder()
+                        .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                         .addHeader(AUTHORIZATION, USER_ID)
                         .build()
                 )
@@ -41,7 +37,7 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun providesHousOkHttpClient(
+    fun providesAladinOkHttpClient(
         interceptor: Interceptor
     ): OkHttpClient =
         OkHttpClient.Builder()
@@ -53,7 +49,7 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun providesHousRetrofit(
+    fun providesAladinRetrofit(
         okHttpClient: OkHttpClient
     ): Retrofit =
         Retrofit.Builder()
@@ -61,16 +57,4 @@ object RetrofitModule {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-    @Provides
-    fun provideHomeService(retrofit: Retrofit): HomeService =
-        retrofit.create(HomeService::class.java)
-
-    @Provides
-    fun provideDetailService(retrofit: Retrofit): DetailService =
-        retrofit.create(DetailService::class.java)
-
-    @Provides
-    fun provideCartService(retrofit: Retrofit): CartService =
-        retrofit.create(CartService::class.java)
 }
