@@ -19,47 +19,73 @@ class CartViewModel @Inject constructor(
     private val _cartTotalPrice = MutableLiveData<Int>()
     val cartTotalPrice: LiveData<Int> = _cartTotalPrice
 
-    private val _cartCount = MutableLiveData<MutableList<Int>>()
-    val cartCount: LiveData<MutableList<Int>> = _cartCount
+    private val cartCount = MutableLiveData<MutableList<Int>>()
 
-    val cartSelectedAll = MutableLiveData(false)
+    private val _cartSelected = MutableLiveData<MutableList<Boolean>>()
+    val cartSelected: LiveData<MutableList<Boolean>> = _cartSelected
 
     init {
         _cartResult.value = tmpList
-        _cartCount.value = MutableList<Int>(tmpList.size) { 1 }
+        cartCount.value = MutableList(tmpList.size) { 1 }
+        _cartSelected.value = MutableList(tmpList.size) { true }
     }
 
-/*  // 서버 구현 시 호출할 함수
-    fun getBasket() {
-        viewModelScope.launch {
-            cartRepository.getBasket()
-                .onSuccess { response ->
-                    _cartResult.value = requireNotNull(response.data)
-                    Timber.d("${_cartResult.value}")
-                }.onFailure { throwable ->
-                    Timber.e(throwable.message)
-                }
+    /*  // 서버 구현 시 호출할 함수
+        fun getBasket() {
+            viewModelScope.launch {
+                cartRepository.getBasket()
+                    .onSuccess { response ->
+                        _cartResult.value = requireNotNull(response.data)
+                        Timber.d("${_cartResult.value}")
+                    }.onFailure { throwable ->
+                        Timber.e(throwable.message)
+                    }
+            }
         }
+    */
+
+    fun setCartSelectedTrue() {
+        _cartSelected.value = MutableList(tmpList.size) { true }
     }
-*/
+
+    fun setCartSelectedFalse() {
+        _cartSelected.value = MutableList(tmpList.size) { false }
+    }
+
+    fun setCartCheckBoxSelected(index: Int): Boolean {
+        return _cartSelected.value!![index]
+    }
 
     fun calculateTotalPrice() {
         var totalPrice = 0
         for (i in 0 until _cartResult.value!!.size) {
-            totalPrice = _cartResult.value!![i].price * _cartCount.value!![i]
+            if (_cartSelected.value!![i]) {
+                totalPrice += _cartResult.value!![i].price * cartCount.value!![i]
+            }
         }
         _cartTotalPrice.value = totalPrice
     }
 
-    fun setCount(index: Int): Int {
-        return _cartCount.value!![index]
+    fun setCartCount(index: Int): Int {
+        return cartCount.value!![index]
     }
 
     fun minusOnClick(index: Int) {
-        _cartCount.value!![index] = _cartCount.value!![index] - 1
+        cartCount.value!![index] = cartCount.value!![index] - 1
+        if (_cartSelected.value!![index]) {
+            _cartTotalPrice.value = _cartTotalPrice.value!!.minus(_cartResult.value!![index].price)
+        }
     }
 
     fun plusOnClick(index: Int) {
-        _cartCount.value!![index] = _cartCount.value!![index] + 1
+        cartCount.value!![index] = cartCount.value!![index] + 1
+        if (_cartSelected.value!![index]) {
+            _cartTotalPrice.value = _cartTotalPrice.value!!.plus(_cartResult.value!![index].price)
+        }
+    }
+
+    fun checkBoxOnClick(index: Int, selected: Boolean) {
+        _cartSelected.value!![index] = selected
+        calculateTotalPrice()
     }
 }

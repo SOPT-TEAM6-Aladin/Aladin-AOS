@@ -19,13 +19,16 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
         binding.vm = cartViewModel
         // cartViewModel.getBasket()
         initAdapter()
+        initTotalPrice()
         initBackBtnClickListener()
-        initCartListObserve()
+        initCheckBox()
     }
 
     private fun initAdapter() {
         cartAdapter = CartAdapter(
-            setCount = cartViewModel::setCount,
+            setSelected = cartViewModel::setCartCheckBoxSelected,
+            checkBoxOnClick = ::checkBoxOnClick,
+            setCount = cartViewModel::setCartCount,
             plusOnClick = ::plusOnClick,
             minusOnClick = ::minusOnClick
         )
@@ -35,6 +38,31 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
             animator.supportsChangeAnimations = false
         }
         cartAdapter.submitList(tmpList)
+    }
+
+    private fun initCheckBox() {
+        binding.cbCart.isChecked = true
+        binding.cbCart.setOnClickListener {
+            if (binding.cbCart.isChecked) {
+                cartViewModel.setCartSelectedTrue()
+            } else {
+                cartViewModel.setCartSelectedFalse()
+            }
+            for (i in 0..tmpList.size) {
+                cartAdapter.notifyItemChanged(i)
+            }
+            cartViewModel.calculateTotalPrice()
+        }
+    }
+
+    private fun initTotalPrice() {
+        cartViewModel.calculateTotalPrice()
+    }
+
+    private fun checkBoxOnClick(index: Int, selected: Boolean) {
+        cartViewModel.checkBoxOnClick(index, selected)
+        cartAdapter.notifyItemChanged(index)
+        binding.cbCart.isChecked = cartViewModel.cartSelected.value!!.all { it }
     }
 
     private fun plusOnClick(index: Int) {
@@ -47,13 +75,6 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
         cartAdapter.notifyItemChanged(index)
     }
 
-    private fun initCartListObserve() {
-        cartViewModel.cartResult.observe(this) { book ->
-            cartAdapter.submitList(book)
-            cartViewModel.calculateTotalPrice()
-        }
-    }
-
     private fun initBackBtnClickListener() {
         binding.btnCartBack.setOnClickListener {
             finish()
@@ -63,11 +84,11 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
     companion object {
         val tmpList = listOf(
             Book(1, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(2, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(3, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(4, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(5, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(6, "코틀린을 배워보자", "0", 10800, 10, 100)
+            Book(2, "코틀린을 배워보자", "0", 20800, 10, 100),
+            Book(3, "코틀린을 배워보자", "0", 9900, 10, 100),
+            Book(4, "코틀린을 배워보자", "0", 13400, 10, 100),
+            Book(5, "코틀린을 배워보자", "0", 24900, 10, 100),
+            Book(6, "코틀린을 배워보자", "0", 33800, 10, 100)
         )
     }
 }
