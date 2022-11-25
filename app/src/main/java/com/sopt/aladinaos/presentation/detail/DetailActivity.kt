@@ -31,7 +31,6 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
         initIsHeartActiveObserve()
         initBackBtnClickListener()
         initCartBtnClickListener()
-        initCoverImageRadius()
         initCostTextViewFlag()
         initMoreBtnList()
         initHeartBtnClickListener()
@@ -83,10 +82,6 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
             val toCart = Intent(this, CartActivity::class.java)
             startActivity(toCart)
         }
-    }
-
-    private fun initCoverImageRadius() {
-        TODO("커버 이미지 radius 4dp 설정")
     }
 
     private fun initCostTextViewFlag() {
