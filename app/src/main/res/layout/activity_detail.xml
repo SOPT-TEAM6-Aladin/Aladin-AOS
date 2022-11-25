@@ -86,6 +86,7 @@
                         android:layout_height="267dp"
                         android:layout_marginTop="20dp"
                         android:scaleType="centerCrop"
+                        android:background="@drawable/shape_4_rect_shadow"
                         setImage="@{vm.detailResult.cover}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
