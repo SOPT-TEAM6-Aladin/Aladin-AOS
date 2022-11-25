@@ -1,5 +1,5 @@
-# 🧞‍♂️ Aladin-AOS
-<img width="1920" alt="Slide 16_9 - 1" src="https://user-images.githubusercontent.com/70993562/204005379-0636ceca-4154-4cf3-9e64-aff47c21e505.png">
+# 🧞‍♂️ Aladin-AOS Engineer 👩‍👧‍👧
+![Frame 1](https://user-images.githubusercontent.com/84129098/204013280-9a8aa17d-098d-4087-aaf1-7d1908785da3.jpg)
 <br>
 
 ## 🛠 사용 기술
@@ -10,11 +10,6 @@
 - OkHttp3
 - Coroutine
 - Glide
-<br>
-
-## 👩‍👧‍👧 Engineer
-| 이영주 | 김지영 | 전채연 |
-| :----: | :----: | :----: |
 <br>
 
 ## ▶ 시연 영상
