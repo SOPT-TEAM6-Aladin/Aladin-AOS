@@ -5,11 +5,12 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Book(
-    val id: Int,
-    val name: String,
-    val cover: String,
-    val price: Int,
+    val id: Int = -1,
+    val name: String = "",
+    val cover: String = "",
+    val painter: String = "",
+    val price: Int = -1,
     @SerialName("discount_rate")
-    val discountRate: Int,
-    val point: Int
+    val discountRate: Int = -1,
+    val point: Int = -1
 )

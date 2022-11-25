@@ -10,6 +10,8 @@ import com.sopt.aladinaos.databinding.ItemCartBodyBinding
 import com.sopt.aladinaos.util.ItemDiffCallback
 
 class CartAdapter(
+    private val setSelected: (Int) -> Boolean,
+    private val checkBoxOnClick: (Int, Boolean) -> Unit,
     private val setCount: (Int) -> Int,
     private val plusOnClick: (Int) -> Unit,
     private val minusOnClick: (Int) -> Unit
@@ -23,7 +25,14 @@ class CartAdapter(
                 parent,
                 false
             )
-        return CartViewHolder(binding, setCount, plusOnClick, minusOnClick)
+        return CartViewHolder(
+            binding,
+            setSelected,
+            checkBoxOnClick,
+            setCount,
+            plusOnClick,
+            minusOnClick
+        )
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
@@ -32,6 +41,8 @@ class CartAdapter(
 
     class CartViewHolder(
         val binding: ItemCartBodyBinding,
+        private val setSelected: (Int) -> Boolean,
+        private val checkBoxOnClick: (Int, Boolean) -> Unit,
         private val setCount: (Int) -> Int,
         private val plusOnClick: (Int) -> Unit,
         private val minusOnClick: (Int) -> Unit
@@ -42,6 +53,10 @@ class CartAdapter(
                 val count = setCount(absoluteAdapterPosition)
                 tvCartBodyCount.text =
                     itemView.context.getString(R.string.cart_body_count, count)
+                cbCartBody.isChecked = setSelected(absoluteAdapterPosition)
+                cbCartBody.setOnClickListener {
+                    checkBoxOnClick(absoluteAdapterPosition, cbCartBody.isChecked)
+                }
                 tvCartBodyMinus.setOnClickListener {
                     if (count in 2..9) {
                         minusOnClick(absoluteAdapterPosition)

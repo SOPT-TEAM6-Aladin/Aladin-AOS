@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.sopt.aladinaos.R
-import com.sopt.aladinaos.data.entity.response.Book
 import com.sopt.aladinaos.databinding.ActivityCartBinding
 import com.sopt.aladinaos.util.binding.BindingActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,15 +16,19 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = cartViewModel
-        // cartViewModel.getBasket()
         initAdapter()
+        cartViewModel.getBasket()
+        cartViewModel.calculateTotalPrice()
+        initTotalPrice()
         initBackBtnClickListener()
-        initCartListObserve()
+        initCheckBox()
     }
 
     private fun initAdapter() {
         cartAdapter = CartAdapter(
-            setCount = cartViewModel::setCount,
+            setSelected = cartViewModel::setCartCheckBoxSelected,
+            checkBoxOnClick = ::checkBoxOnClick,
+            setCount = cartViewModel::setCartCount,
             plusOnClick = ::plusOnClick,
             minusOnClick = ::minusOnClick
         )
@@ -34,7 +37,34 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
         if (animator is SimpleItemAnimator) {
             animator.supportsChangeAnimations = false
         }
-        cartAdapter.submitList(tmpList)
+        cartViewModel.cartResult.observe(this) { cartResult ->
+            cartAdapter.submitList(cartResult)
+        }
+    }
+
+    private fun initCheckBox() {
+        binding.cbCart.isChecked = true
+        binding.cbCart.setOnClickListener {
+            if (binding.cbCart.isChecked) {
+                cartViewModel.setCartSelectedTrue()
+            } else {
+                cartViewModel.setCartSelectedFalse()
+            }
+            for (i in 0..cartViewModel.cartResult.value!!.size) {
+                cartAdapter.notifyItemChanged(i)
+            }
+            cartViewModel.calculateTotalPrice()
+        }
+    }
+
+    private fun initTotalPrice() {
+        cartViewModel.calculateTotalPrice()
+    }
+
+    private fun checkBoxOnClick(index: Int, selected: Boolean) {
+        cartViewModel.checkBoxOnClick(index, selected)
+        cartAdapter.notifyItemChanged(index)
+        binding.cbCart.isChecked = cartViewModel.cartSelected.value!!.all { it }
     }
 
     private fun plusOnClick(index: Int) {
@@ -47,27 +77,9 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
         cartAdapter.notifyItemChanged(index)
     }
 
-    private fun initCartListObserve() {
-        cartViewModel.cartResult.observe(this) { book ->
-            cartAdapter.submitList(book)
-            cartViewModel.calculateTotalPrice()
-        }
-    }
-
     private fun initBackBtnClickListener() {
         binding.btnCartBack.setOnClickListener {
             finish()
         }
-    }
-
-    companion object {
-        val tmpList = listOf(
-            Book(1, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(2, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(3, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(4, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(5, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(6, "코틀린을 배워보자", "0", 10800, 10, 100)
-        )
     }
 }

@@ -47,7 +47,6 @@
             android:layout_marginTop="26dp"
             android:background="@drawable/selector_cart_check"
             android:button="@android:color/transparent"
-            android:checked="@{vm.cartSelectedAll}"
             android:clickable="true"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="@id/btn_cart_back"
