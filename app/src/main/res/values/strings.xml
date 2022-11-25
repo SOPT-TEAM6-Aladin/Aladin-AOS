@@ -23,8 +23,8 @@
     <string name="home_aladin_made_goods">알라딘이 만든 사은품</string>
 
     <!-- home editor choice item -->
-    <string name="vm_editorpickresult_name">${vm.editorPickResult.name}</string>
-    <string name="vm_editorpickresult_info">${vm.editorPickResult.author}지음, ${vm.editorPickResult.painter}그림 / ${vm.editorPickResult.publish}</string>
+    <string name="home_editor_name">%s</string>
+    <string name="home_editor_info">%s지음, %s그림 / %s</string>
 
     <!-- profile fragment -->
     <string name="profile_level_label">LV.</string>

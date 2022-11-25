@@ -1,9 +1,11 @@
 package com.sopt.aladinaos.presentation.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sopt.aladinaos.data.ServicePool
+import com.sopt.aladinaos.data.entity.response.BaseResponse
 import com.sopt.aladinaos.data.entity.response.HomeData
 import com.sopt.aladinaos.data.entity.response.HomeData.Pick
 import com.sopt.aladinaos.data.entity.response.HomeData.Topic
@@ -25,22 +27,25 @@ class HomeViewModel : ViewModel() {
     private val homeService = ServicePool.homeService
 
     fun getPickData() {
-        homeService.getHomeData().enqueue(object : Callback<HomeData> {
+        homeService.getHomeData().enqueue(object : Callback<BaseResponse<HomeData>> {
             override fun onResponse(
-                call: Call<HomeData>,
-                response: Response<HomeData>
+                call: Call<BaseResponse<HomeData>>,
+                response: Response<BaseResponse<HomeData>>
             ) {
                 if (response.isSuccessful) { // 통신 성공
                     isResponseSuccessful.value = true
-                    _editorPickResult.value = response.body()?.pick
-                    _topSellerResult.value = response.body()?.topic
+                    _editorPickResult.value = response.body()?.data?.pick
+                    _topSellerResult.value = response.body()?.data?.topic
+
+//                    Timber.d("${response.body()}")
+                    Log.d("HomeViewModel", response.body().toString())
 
                     Timber.d("${_editorPickResult.value}")
                     Timber.d("${_topSellerResult.value}")
                 }
             }
 
-            override fun onFailure(call: Call<HomeData>, t: Throwable) { // 통신 실패
+            override fun onFailure(call: Call<BaseResponse<HomeData>>, t: Throwable) { // 통신 실패
                 isResponseSuccessful.value = false
                 Timber.d("${t.message}")
             }
