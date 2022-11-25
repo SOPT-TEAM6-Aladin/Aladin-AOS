@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Aladin</string>
     <string name="binding_error">Binding not initialized to reference the view.</string>
+    <string name="msg_null">유효하지 않은 값입니다.</string>
+    <string name="msg_error">오류가 발생하였습니다.</string>
+    <string name="msg_unknown_error">알 수 없는 오류가 발생하였습니다.</string>
 
     <!-- bottom navigation -->
     <string name="bot_navi_profile">MY</string>
@@ -59,6 +62,11 @@
     <string name="profile_sell_user">회원에게 팔기</string>
 
     <!-- detail activity -->
+    <string name="detail_delivery_author_painter">%s(지은이) ㅣ %s(그림)</string>
+    <string name="detail_star_count">4.6</string>
+    <string name="detail_heart_count">%,1d</string>
+    <string name="detail_cost">%,2d원</string>
+    <string name="detail_price">%,2d원</string>
     <string name="detail_delivery_fee_label">배송료</string>
     <string name="detail_delivery_fee">무료</string>
     <string name="detail_carpet_delivery">양탄자 배송</string>
@@ -85,7 +93,10 @@
     <string name="detail_store_info">중고매장 위치, 영업시간 안내</string>
     <string name="detail_cart">장바구니</string>
     <string name="detail_purchase">구매하기</string>
-
+    <string name="detail_like_success">좋아요가 반영되었습니다.</string>
+    <string name="detail_like_cancel">좋아요가 해제되었습니다.</string>
+    <string name="detail_cart_success">장바구니에 추가되었습니다.</string>
+    <string name="detail_cart_exist">이미 장바구니를 추가 했습니다.</string>
     <!-- Cart -->
     <string name="cart_format_price">%,2d원</string>
     <string name="cart_body_count">%1d</string>
