@@ -7,10 +7,12 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat.startActivity
 import com.sopt.aladinaos.R
 import com.sopt.aladinaos.databinding.ActivityDetailBinding
 import com.sopt.aladinaos.presentation.cart.CartActivity
 import com.sopt.aladinaos.util.binding.BindingActivity
+import com.sopt.aladinaos.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,15 +21,24 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding.vm = detailViewModel
-        // ★★★ intent에서 id 값 받아오기
-        detailViewModel.getBookDetail(1)
+
+        getBookDetailData()
         initDetailResultObserve()
         initBackBtnClickListener()
         initCartBtnClickListener()
         initCostTextView()
         initMoreBtnList()
+    }
+
+    private fun getBookDetailData() {
+        if (intent.hasExtra("id")) {
+            val id = intent.getIntExtra("id", 1)
+            detailViewModel.getBookDetail(id)
+        } else {
+            this.showToast(getString(R.string.msg_error))
+            finish()
+        }
     }
 
     private fun initDetailResultObserve() {
