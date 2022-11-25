@@ -42,7 +42,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="149dp"
             android:textAppearance="@style/TitleBold1"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             tools:text="기소영의 친구들" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="172dp"
             android:textAppearance="@style/DetailRegular1"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             tools:text="정은주 지음, 해랑 그림 / 사계절" />
 
 

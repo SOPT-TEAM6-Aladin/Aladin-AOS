@@ -22,7 +22,7 @@ class HomeEditorChoiceAdapter(context: Context) :
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(book: Pick) {
             Glide.with(this.binding.root)
-                .load(book.cover)
+                .load(book.thumbnail)
                 .into(binding.ivHomeEditorBackground)
             binding.tvEditorTitle.text = itemView.context.getString(R.string.home_editor_name, book.name)
             binding.tvEditorAuthor.text = itemView.context.getString(R.string.home_editor_info, book.author, book.painter, book.publisher)
