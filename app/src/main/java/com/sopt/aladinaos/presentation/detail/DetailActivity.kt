@@ -37,19 +37,14 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
     }
 
     private fun getBookDetailData() {
-//        if (intent.hasExtra("id")) {
-//        val id = intent.getIntExtra("id", 1)
         detailViewModel.getBookDetail(userId)
-//        } else {
-//            this.showToast(getString(R.string.msg_error))
-//            finish()
-//        }
     }
 
     private fun initDetailResultObserve() {
         detailViewModel.detailResult.observe(this) {
             if (!it.pick) binding.ivDetailEditorBadge.visibility = View.GONE
             if (it.discountRate == 0) binding.tvDetailCost.visibility = View.GONE
+            binding.btnDetailHeart.isSelected = it.like
         }
     }
 

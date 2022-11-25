@@ -80,25 +80,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/cl_detail_book_cover"
+                    <ImageView
+                        android:id="@+id/iv_detail_book_cover"
+                        setCoverImage="@{vm.detailResult.cover}"
                         android:layout_width="194dp"
                         android:layout_height="267dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/shape_4_rect_shadow"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:id="@+id/iv_detail_book_cover"
-                            setCoverImage="@{vm.detailResult.cover}"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:clipToOutline="true"
-                            android:scaleType="centerCrop" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
                         android:id="@+id/iv_detail_editor_badge"
@@ -107,8 +98,8 @@
                         android:layout_marginStart="-3dp"
                         android:layout_marginTop="17dp"
                         android:src="@drawable/img_detail_badge"
-                        app:layout_constraintStart_toEndOf="@id/cl_detail_book_cover"
-                        app:layout_constraintTop_toTopOf="@id/cl_detail_book_cover" />
+                        app:layout_constraintStart_toEndOf="@id/iv_detail_book_cover"
+                        app:layout_constraintTop_toTopOf="@id/iv_detail_book_cover" />
 
                     <ImageButton
                         android:id="@+id/btn_detail_left_arrow"
@@ -118,9 +109,9 @@
                         android:background="@null"
                         android:padding="6dp"
                         android:src="@drawable/ic_detail_left"
-                        app:layout_constraintBottom_toBottomOf="@id/cl_detail_book_cover"
-                        app:layout_constraintEnd_toStartOf="@id/cl_detail_book_cover"
-                        app:layout_constraintTop_toTopOf="@id/cl_detail_book_cover" />
+                        app:layout_constraintBottom_toBottomOf="@id/iv_detail_book_cover"
+                        app:layout_constraintEnd_toStartOf="@id/iv_detail_book_cover"
+                        app:layout_constraintTop_toTopOf="@id/iv_detail_book_cover" />
 
                     <ImageButton
                         android:id="@+id/btn_detail_right_arrow"
@@ -130,9 +121,9 @@
                         android:background="@null"
                         android:padding="6dp"
                         android:src="@drawable/ic_detail_right"
-                        app:layout_constraintBottom_toBottomOf="@id/cl_detail_book_cover"
-                        app:layout_constraintStart_toEndOf="@id/cl_detail_book_cover"
-                        app:layout_constraintTop_toTopOf="@id/cl_detail_book_cover" />
+                        app:layout_constraintBottom_toBottomOf="@id/iv_detail_book_cover"
+                        app:layout_constraintStart_toEndOf="@id/iv_detail_book_cover"
+                        app:layout_constraintTop_toTopOf="@id/iv_detail_book_cover" />
 
                     <TextView
                         android:id="@+id/tv_detail_book_title"
@@ -144,7 +135,7 @@
                         android:textColor="@color/grey_4"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cl_detail_book_cover"
+                        app:layout_constraintTop_toBottomOf="@id/iv_detail_book_cover"
                         tools:text="기소영의 친구들" />
 
                     <TextView
@@ -210,7 +201,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
-                        android:text="@{@string/detail_heart_count(vm.heartCount)}"
+                        android:text="@{@string/detail_heart_count(vm.likeCount)}"
                         android:textAppearance="@style/RatingMedium"
                         android:textColor="@color/grey_4" />
                 </LinearLayout>

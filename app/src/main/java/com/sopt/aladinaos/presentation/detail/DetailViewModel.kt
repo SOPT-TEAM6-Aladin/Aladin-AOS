@@ -20,21 +20,17 @@ class DetailViewModel @Inject constructor(
     private val _detailResult = MutableLiveData<Detail>()
     val detailResult: LiveData<Detail> = _detailResult
 
-    private val _heartCount = MutableLiveData<Int>()
-    val heartCount: LiveData<Int> = _heartCount
-
     private val _bookPrice = MutableLiveData<Int>()
     val bookPrice: LiveData<Int> = _bookPrice
 
     private val _isHeartActive = MutableLiveData<Boolean>()
     val isHeartActive: LiveData<Boolean> = _isHeartActive
 
+    private val _likeCount = MutableLiveData<Int>()
+    val likeCount: LiveData<Int> = _likeCount
+
     private val _toastMessage = MutableLiveData<State>()
     val toastMessage: LiveData<State> = _toastMessage
-
-    init {
-        _heartCount.value = 3785
-    }
 
     /** 서버에 해당 id의 책 상세 데이터 요청 */
     fun getBookDetail(id: Int) {
@@ -47,6 +43,7 @@ class DetailViewModel @Inject constructor(
                     Timber.d("status : ${response.status}")
                     Timber.d("response : $response")
                     _detailResult.value = requireNotNull(response.data) { "response data is null" }
+                    _likeCount.value = _detailResult.value!!.likeCount
 
                     // 도서 정가 계산
                     _bookPrice.value = response.data.price
@@ -81,10 +78,10 @@ class DetailViewModel @Inject constructor(
                     _isHeartActive.value = response.data?.hasLike
                     if (response.data?.hasLike == true) {
                         _toastMessage.value = State.SUCCESS
-                        _heartCount.value = _heartCount.value?.plus(1)
+                        _likeCount.value = _likeCount.value?.plus(1) ?: 0
                     } else {
                         _toastMessage.value = State.CANCEL
-                        _heartCount.value = _heartCount.value?.minus(1)
+                        _likeCount.value = _likeCount.value?.minus(1) ?: 0
                     }
                 }
                 .onFailure { throwable ->
