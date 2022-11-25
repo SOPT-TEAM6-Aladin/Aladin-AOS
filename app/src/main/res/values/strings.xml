@@ -41,6 +41,11 @@
     <string name="profile_sell_user">회원에게 팔기</string>
 
     <!-- detail activity -->
+    <string name="detail_delivery_author_painter">%s(지은이) ㅣ %s(그림)</string>
+    <string name="detail_star_count">4.6</string>
+    <string name="detail_heart_count">%,1d</string>
+    <string name="detail_cost">%,2d원</string>
+    <string name="detail_price">%,2d원</string>
     <string name="detail_delivery_fee_label">배송료</string>
     <string name="detail_delivery_fee">무료</string>
     <string name="detail_carpet_delivery">양탄자 배송</string>
