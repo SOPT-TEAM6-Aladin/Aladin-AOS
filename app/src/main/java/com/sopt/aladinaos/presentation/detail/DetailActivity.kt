@@ -7,10 +7,10 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat.startActivity
 import com.sopt.aladinaos.R
 import com.sopt.aladinaos.databinding.ActivityDetailBinding
 import com.sopt.aladinaos.presentation.cart.CartActivity
+import com.sopt.aladinaos.presentation.detail.DetailViewModel.Companion.State
 import com.sopt.aladinaos.util.binding.BindingActivity
 import com.sopt.aladinaos.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +25,7 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
 
         getBookDetailData()
         initDetailResultObserve()
+        initErrorMessageObserve()
         initBackBtnClickListener()
         initCartBtnClickListener()
         initCostTextView()
@@ -45,6 +46,16 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
         detailViewModel.detailResult.observe(this) {
             if (!it.pick) binding.ivDetailEditorBadge.visibility = View.GONE
             if (it.discountRate == 0) binding.tvDetailCost.visibility = View.GONE
+        }
+    }
+
+    private fun initErrorMessageObserve() {
+        detailViewModel.errorMessage.observe(this) {
+            when (it) {
+                State.NULL -> this.showToast(getString(R.string.msg_null))
+                State.ERROR -> this.showToast(getString(R.string.msg_error))
+                else -> this.showToast(getString(R.string.msg_unknown_error))
+            }
         }
     }
 

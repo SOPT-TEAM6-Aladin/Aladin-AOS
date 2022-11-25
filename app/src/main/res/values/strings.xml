@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Aladin</string>
     <string name="binding_error">Binding not initialized to reference the view.</string>
+    <string name="msg_null">유효하지 않은 값입니다.</string>
     <string name="msg_error">오류가 발생하였습니다.</string>
+    <string name="msg_unknown_error">알 수 없는 오류가 발생하였습니다.</string>
 
     <!-- bottom navigation -->
     <string name="bot_navi_profile">MY</string>
