@@ -18,3 +18,4 @@
 <br>
 
 ## ▶ 시연 영상
+https://drive.google.com/file/d/1I54yjQFEIoIKQnesd0BCW_IbjoxU0gdW/view?usp=share_link
