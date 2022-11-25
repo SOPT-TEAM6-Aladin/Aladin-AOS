@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_detail) {
     private val detailViewModel: DetailViewModel by viewModels()
 
-//    private val bookId: Int by lazy { intent.getIntExtra("id", 1) }
+    private val bookId: Int by lazy { intent.getIntExtra("id", 2) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,7 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
     }
 
     private fun getBookDetailData() {
-        detailViewModel.getBookDetail(1)
+        detailViewModel.getBookDetail(bookId)
     }
 
     private fun initDetailResultObserve() {
@@ -104,13 +104,13 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
 
     private fun initHeartBtnClickListener() {
         binding.btnDetailHeart.setOnClickListener {
-            detailViewModel.putLike(1)
+            detailViewModel.putLike(bookId)
         }
     }
 
     private fun initAddToCartBtnClickListener() {
         binding.tvDetailCart.setOnClickListener {
-            detailViewModel.addToCart(1)
+            detailViewModel.addToCart(bookId)
         }
     }
 }
