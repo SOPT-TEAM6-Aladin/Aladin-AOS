@@ -3,18 +3,23 @@ package com.sopt.aladinaos.presentation.cart
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.sopt.aladinaos.data.entity.response.Book
+import com.sopt.aladinaos.data.entity.response.CartResponse
 import com.sopt.aladinaos.data.repository.CartRepository
-import com.sopt.aladinaos.presentation.cart.CartActivity.Companion.tmpList
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class CartViewModel @Inject constructor(
     private val cartRepository: CartRepository
 ) : ViewModel() {
-    private val _cartResult = MutableLiveData<List<Book>>()
-    val cartResult: LiveData<List<Book>> = _cartResult
+    private val cartResponse = MutableLiveData<List<CartResponse>>()
+
+    private val _cartResult = MutableLiveData<MutableList<Book>>(mutableListOf())
+    val cartResult: LiveData<MutableList<Book>> = _cartResult
 
     private val _cartTotalPrice = MutableLiveData<Int>()
     val cartTotalPrice: LiveData<Int> = _cartTotalPrice
@@ -24,32 +29,31 @@ class CartViewModel @Inject constructor(
     private val _cartSelected = MutableLiveData<MutableList<Boolean>>()
     val cartSelected: LiveData<MutableList<Boolean>> = _cartSelected
 
-    init {
-        _cartResult.value = tmpList
-        cartCount.value = MutableList(tmpList.size) { 1 }
-        _cartSelected.value = MutableList(tmpList.size) { true }
+    fun getBasket() {
+        viewModelScope.launch {
+            cartRepository.getBasket()
+                .onSuccess { response ->
+                    cartResponse.value = requireNotNull(response.data)
+                    Timber.d("RESPONSE : ${cartResponse.value}")
+                    val cartTmpList = mutableListOf<Book>()
+                    for (i in 0 until cartResponse.value!!.size) {
+                        cartTmpList.add(cartResponse.value!![i].book)
+                        cartCount.value = MutableList(cartTmpList.size) { 1 }
+                        _cartSelected.value = MutableList(cartTmpList.size) { true }
+                    }
+                    _cartResult.value = cartTmpList
+                }.onFailure { throwable ->
+                    Timber.e(throwable.message)
+                }
+        }
     }
 
-    /*  // 서버 구현 시 호출할 함수
-        fun getBasket() {
-            viewModelScope.launch {
-                cartRepository.getBasket()
-                    .onSuccess { response ->
-                        _cartResult.value = requireNotNull(response.data)
-                        Timber.d("${_cartResult.value}")
-                    }.onFailure { throwable ->
-                        Timber.e(throwable.message)
-                    }
-            }
-        }
-    */
-
     fun setCartSelectedTrue() {
-        _cartSelected.value = MutableList(tmpList.size) { true }
+        _cartSelected.value = MutableList(_cartResult.value!!.size) { true }
     }
 
     fun setCartSelectedFalse() {
-        _cartSelected.value = MutableList(tmpList.size) { false }
+        _cartSelected.value = MutableList(_cartResult.value!!.size) { false }
     }
 
     fun setCartCheckBoxSelected(index: Int): Boolean {

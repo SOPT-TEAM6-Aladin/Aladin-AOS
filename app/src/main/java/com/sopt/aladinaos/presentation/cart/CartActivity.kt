@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.sopt.aladinaos.R
-import com.sopt.aladinaos.data.entity.response.Book
 import com.sopt.aladinaos.databinding.ActivityCartBinding
 import com.sopt.aladinaos.util.binding.BindingActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,8 +16,9 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = cartViewModel
-        // cartViewModel.getBasket()
         initAdapter()
+        cartViewModel.getBasket()
+        cartViewModel.calculateTotalPrice()
         initTotalPrice()
         initBackBtnClickListener()
         initCheckBox()
@@ -37,7 +37,9 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
         if (animator is SimpleItemAnimator) {
             animator.supportsChangeAnimations = false
         }
-        cartAdapter.submitList(tmpList)
+        cartViewModel.cartResult.observe(this) { cartResult ->
+            cartAdapter.submitList(cartResult)
+        }
     }
 
     private fun initCheckBox() {
@@ -48,7 +50,7 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
             } else {
                 cartViewModel.setCartSelectedFalse()
             }
-            for (i in 0..tmpList.size) {
+            for (i in 0..cartViewModel.cartResult.value!!.size) {
                 cartAdapter.notifyItemChanged(i)
             }
             cartViewModel.calculateTotalPrice()
@@ -79,16 +81,5 @@ class CartActivity : BindingActivity<ActivityCartBinding>(R.layout.activity_cart
         binding.btnCartBack.setOnClickListener {
             finish()
         }
-    }
-
-    companion object {
-        val tmpList = listOf(
-            Book(1, "코틀린을 배워보자", "0", 10800, 10, 100),
-            Book(2, "코틀린을 배워보자", "0", 20800, 10, 100),
-            Book(3, "코틀린을 배워보자", "0", 9900, 10, 100),
-            Book(4, "코틀린을 배워보자", "0", 13400, 10, 100),
-            Book(5, "코틀린을 배워보자", "0", 24900, 10, 100),
-            Book(6, "코틀린을 배워보자", "0", 33800, 10, 100)
-        )
     }
 }
