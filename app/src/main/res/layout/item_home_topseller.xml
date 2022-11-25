@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginEnd="14dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -13,29 +12,33 @@
         android:contentDescription="@null"
         android:scaleType="fitXY"
         app:layout_constraintCircleRadius="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tv_home_topseller_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:singleLine="false"
         android:textAppearance="@style/TitleSemibold1"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_home_topseller_thumbnail"
+        app:layout_constraintStart_toStartOf="@+id/iv_home_topseller_thumbnail"
         app:layout_constraintTop_toBottomOf="@+id/iv_home_topseller_thumbnail"
         tools:text="브랜드로 남는다는 것" />
 
     <TextView
         android:id="@+id/tv_home_topseller_author"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="65dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:layout_marginHorizontal="8dp"
         android:layout_marginTop="4dp"
         android:textAppearance="@style/DetailRegular1"
         app:layout_constraintEnd_toEndOf="@+id/iv_home_topseller_thumbnail"
-        app:layout_constraintStart_toStartOf="@+id/tv_home_topseller_title"
+        app:layout_constraintStart_toStartOf="@+id/iv_home_topseller_thumbnail"
         app:layout_constraintTop_toBottomOf="@+id/tv_home_topseller_title"
         tools:text="끝까지 살아남는 브랜드는 무엇이 다른가" />
 </androidx.constraintlayout.widget.ConstraintLayout>
