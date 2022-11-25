@@ -42,6 +42,7 @@ class CartViewModel @Inject constructor(
                         _cartSelected.value = MutableList(cartTmpList.size) { true }
                     }
                     _cartResult.value = cartTmpList
+                    calculateTotalPrice()
                 }.onFailure { throwable ->
                     Timber.e(throwable.message)
                 }
