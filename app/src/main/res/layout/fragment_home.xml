@@ -253,7 +253,7 @@
                     android:id="@+id/ll_home_category_detail5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="49dp"
+                    android:layout_marginEnd="47dp"
                     android:orientation="vertical">
 
                     <ImageButton
@@ -261,6 +261,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:paddingVertical="5dp"
+                        android:layout_marginHorizontal="2.5dp"
                         android:background="@drawable/ic_home_new"
                         android:contentDescription="@null"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -281,7 +283,7 @@
                     android:id="@+id/ll_home_category_detail6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
+                    android:layout_marginEnd="40dp"
                     android:orientation="vertical">
 
                     <ImageButton

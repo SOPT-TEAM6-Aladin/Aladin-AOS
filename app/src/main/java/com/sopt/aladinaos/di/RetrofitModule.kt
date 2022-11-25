@@ -57,4 +57,20 @@ object RetrofitModule {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+//    val homePickService: HomeService by lazy {
+//        loginRetrofit.create(HomeService::class.java)
+//    }
+/*
+            private val loginRetrofit by lazy {
+                Retrofit.Builder()
+                    .baseUrl(AUTH_BASE_URL)
+                    .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+                    .build()
+            }
+
+            val authService: AuthService by lazy {
+                loginRetrofit.create(AuthService::class.java)
+            }
+            */
 }

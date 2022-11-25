@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="vm"
+        type="com.sopt.aladinaos.presentation.home.HomeViewModel" />
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="14dp">
@@ -19,7 +26,8 @@
             android:id="@+id/iv_home_editor_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@drawable/ic_home_book_background"
+            android:contentDescription="@null" />
 
         <ImageView
             android:id="@+id/iv_home_editor_background_trans"
@@ -27,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="114dp"
             android:scaleType="fitXY"
+            android:contentDescription="@null"
             android:src="@drawable/ic_home_book_background_trans" />
 
 
@@ -39,6 +48,7 @@
             android:layout_marginTop="149dp"
             android:textAppearance="@style/TitleBold1"
             android:textColor="@color/white"
+            android:text="@string/vm_editorpickresult_name"
             tools:text="기소영의 친구들" />
 
         <TextView
@@ -49,8 +59,11 @@
             android:layout_marginTop="172dp"
             android:textAppearance="@style/DetailRegular1"
             android:textColor="@color/white"
-            tools:text="정은주 지음, 해랑 그림" />
+            android:text="@string/vm_editorpickresult_info"
+            tools:text="정은주 지음, 해랑 그림 / 사계절" />
+
 
 
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
