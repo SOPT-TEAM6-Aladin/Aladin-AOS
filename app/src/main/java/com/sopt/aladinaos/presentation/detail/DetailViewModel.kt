@@ -5,17 +5,21 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopt.aladinaos.data.entity.response.Detail
+import com.sopt.aladinaos.data.entity.response.RequestAddToCartDto
+import com.sopt.aladinaos.data.repository.AddRepository
 import com.sopt.aladinaos.data.repository.DetailRepository
 import com.sopt.aladinaos.data.repository.LikeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     private val detailRepository: DetailRepository,
-    private val likeRepository: LikeRepository
+    private val likeRepository: LikeRepository,
+    private val addRepository: AddRepository
 ) : ViewModel() {
     private val _detailResult = MutableLiveData<Detail>()
     val detailResult: LiveData<Detail> = _detailResult
@@ -77,7 +81,7 @@ class DetailViewModel @Inject constructor(
 
                     _isHeartActive.value = response.data?.hasLike
                     if (response.data?.hasLike == true) {
-                        _toastMessage.value = State.SUCCESS
+                        _toastMessage.value = State.LIKE_SUCCESS
                         _likeCount.value = _likeCount.value?.plus(1) ?: 0
                     } else {
                         _toastMessage.value = State.CANCEL
@@ -92,9 +96,37 @@ class DetailViewModel @Inject constructor(
         }
     }
 
+    fun addToCart(id: Int) {
+        viewModelScope.launch {
+            addRepository.addToCart(RequestAddToCartDto(id))
+                .onSuccess { response ->
+                    if (response.data == null) _toastMessage.value = State.NULL
+                    Timber.d("ADD TO CART SUCCESS")
+                    Timber.d("status : ${response.status}")
+                    Timber.d("response : $response")
+
+                    _toastMessage.value = State.CART_SUCCESS
+                }
+                .onFailure { throwable ->
+                    Timber.e("ADD TO CART FAIL")
+                    Timber.e("fail message : $throwable")
+                    if (throwable is HttpException) {
+                        when (throwable.code()) {
+                            CART_EXIST_CODE -> _toastMessage.value = State.CART_EXIST
+                            else -> _toastMessage.value = State.ERROR
+                        }
+                    }
+                }
+        }
+    }
+
     companion object {
         enum class State {
-            SUCCESS, NULL, ERROR, CANCEL
+            NULL, ERROR, CANCEL,
+            LIKE_SUCCESS,
+            CART_SUCCESS, CART_EXIST
         }
+
+        private const val CART_EXIST_CODE = 400
     }
 }

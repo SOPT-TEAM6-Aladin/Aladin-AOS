@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class RemoteLikeDataSource @Inject constructor(
     private val detailService: DetailService
-){
+) {
     suspend fun putLike(id: Int): BaseResponse<Like> =
         detailService.putLike(id)
 }

@@ -27,4 +27,10 @@ object RepositoryModule {
     fun providesLikeRepository(
         likeRepositoryImpl: LikeRepositoryImpl
     ): LikeRepository = likeRepositoryImpl
+
+    @Provides
+    @Singleton
+    fun providesAddRepository(
+        addRepositoryImpl: AddRepositoryImpl
+    ): AddRepository = addRepositoryImpl
 }

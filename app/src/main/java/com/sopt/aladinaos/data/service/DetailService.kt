@@ -1,11 +1,7 @@
 package com.sopt.aladinaos.data.service
 
-import com.sopt.aladinaos.data.entity.response.BaseResponse
-import com.sopt.aladinaos.data.entity.response.Detail
-import com.sopt.aladinaos.data.entity.response.Like
-import retrofit2.http.GET
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import com.sopt.aladinaos.data.entity.response.*
+import retrofit2.http.* // ktlint-disable no-wildcard-imports
 
 interface DetailService {
     // 책 상세 정보 조회
@@ -19,4 +15,10 @@ interface DetailService {
     suspend fun putLike(
         @Path("bookId") bookId: Int
     ): BaseResponse<Like>
+
+    // 장바구니 담기
+    @POST("api/basket")
+    suspend fun addToCart(
+        @Body bookId: RequestAddToCartDto
+    ): BaseResponse<Add>
 }

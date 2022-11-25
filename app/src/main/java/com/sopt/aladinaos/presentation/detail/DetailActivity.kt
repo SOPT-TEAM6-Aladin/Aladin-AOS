@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_detail) {
     private val detailViewModel: DetailViewModel by viewModels()
 
-    private val userId: Int by lazy { intent.getIntExtra("id", 1) }
+//    private val bookId: Int by lazy { intent.getIntExtra("id", 1) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,10 +34,11 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
         initCostTextViewFlag()
         initMoreBtnList()
         initHeartBtnClickListener()
+        initAddToCartBtnClickListener()
     }
 
     private fun getBookDetailData() {
-        detailViewModel.getBookDetail(userId)
+        detailViewModel.getBookDetail(1)
     }
 
     private fun initDetailResultObserve() {
@@ -51,10 +52,12 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
     private fun initToastMessageObserve() {
         detailViewModel.toastMessage.observe(this) {
             when (it) {
-                State.SUCCESS -> this.showToast(getString(R.string.profile_like_success))
+                State.LIKE_SUCCESS -> this.showToast(getString(R.string.detail_like_success))
+                State.CART_SUCCESS -> this.showToast(getString(R.string.detail_cart_success))
+                State.CART_EXIST -> this.showToast(getString(R.string.detail_cart_exist))
                 State.NULL -> this.showToast(getString(R.string.msg_null))
                 State.ERROR -> this.showToast(getString(R.string.msg_error))
-                State.CANCEL -> this.showToast(getString(R.string.profile_like_cancel))
+                State.CANCEL -> this.showToast(getString(R.string.detail_like_cancel))
                 else -> this.showToast(getString(R.string.msg_unknown_error))
             }
         }
@@ -101,7 +104,13 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
 
     private fun initHeartBtnClickListener() {
         binding.btnDetailHeart.setOnClickListener {
-            detailViewModel.putLike(userId)
+            detailViewModel.putLike(1)
+        }
+    }
+
+    private fun initAddToCartBtnClickListener() {
+        binding.tvDetailCart.setOnClickListener {
+            detailViewModel.addToCart(1)
         }
     }
 }
