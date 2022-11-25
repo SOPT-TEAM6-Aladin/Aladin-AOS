@@ -1,9 +1,6 @@
 package com.sopt.aladinaos.di
 
-import com.sopt.aladinaos.data.repository.CartRepository
-import com.sopt.aladinaos.data.repository.CartRepositoryImpl
-import com.sopt.aladinaos.data.repository.DetailRepository
-import com.sopt.aladinaos.data.repository.DetailRepositoryImpl
+import com.sopt.aladinaos.data.repository.* // ktlint-disable no-wildcard-imports
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,4 +21,10 @@ object RepositoryModule {
     fun providesDetailRepository(
         detailRepositoryImpl: DetailRepositoryImpl
     ): DetailRepository = detailRepositoryImpl
+
+    @Provides
+    @Singleton
+    fun providesLikeRepository(
+        likeRepositoryImpl: LikeRepositoryImpl
+    ): LikeRepository = likeRepositoryImpl
 }

@@ -19,27 +19,31 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_detail) {
     private val detailViewModel: DetailViewModel by viewModels()
 
+    private val userId: Int by lazy { intent.getIntExtra("id", 1) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = detailViewModel
 
         getBookDetailData()
         initDetailResultObserve()
-        initErrorMessageObserve()
+        initToastMessageObserve()
+        initIsHeartActiveObserve()
         initBackBtnClickListener()
         initCartBtnClickListener()
         initCostTextView()
         initMoreBtnList()
+        initHeartBtnClickListener()
     }
 
     private fun getBookDetailData() {
-        if (intent.hasExtra("id")) {
-            val id = intent.getIntExtra("id", 1)
-            detailViewModel.getBookDetail(id)
-        } else {
-            this.showToast(getString(R.string.msg_error))
-            finish()
-        }
+//        if (intent.hasExtra("id")) {
+//        val id = intent.getIntExtra("id", 1)
+        detailViewModel.getBookDetail(userId)
+//        } else {
+//            this.showToast(getString(R.string.msg_error))
+//            finish()
+//        }
     }
 
     private fun initDetailResultObserve() {
@@ -49,13 +53,21 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
         }
     }
 
-    private fun initErrorMessageObserve() {
-        detailViewModel.errorMessage.observe(this) {
+    private fun initToastMessageObserve() {
+        detailViewModel.toastMessage.observe(this) {
             when (it) {
+                State.SUCCESS -> this.showToast(getString(R.string.profile_like_success))
                 State.NULL -> this.showToast(getString(R.string.msg_null))
                 State.ERROR -> this.showToast(getString(R.string.msg_error))
+                State.CANCEL -> this.showToast(getString(R.string.profile_like_cancel))
                 else -> this.showToast(getString(R.string.msg_unknown_error))
             }
+        }
+    }
+
+    private fun initIsHeartActiveObserve() {
+        detailViewModel.isHeartActive.observe(this) {
+            binding.btnDetailHeart.isSelected = it
         }
     }
 
@@ -89,6 +101,12 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
         btn.setOnClickListener {
             tv.maxLines = Integer.MAX_VALUE
             btn.visibility = View.GONE
+        }
+    }
+
+    private fun initHeartBtnClickListener() {
+        binding.btnDetailHeart.setOnClickListener {
+            detailViewModel.putLike(userId)
         }
     }
 }
