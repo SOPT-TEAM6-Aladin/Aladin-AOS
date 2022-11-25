@@ -1,6 +1,5 @@
 package com.sopt.aladinaos.presentation.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -36,9 +35,6 @@ class HomeViewModel : ViewModel() {
                     isResponseSuccessful.value = true
                     _editorPickResult.value = response.body()?.data?.pick
                     _topSellerResult.value = response.body()?.data?.topic
-
-//                    Timber.d("${response.body()}")
-                    Log.d("HomeViewModel", response.body().toString())
 
                     Timber.d("${_editorPickResult.value}")
                     Timber.d("${_topSellerResult.value}")

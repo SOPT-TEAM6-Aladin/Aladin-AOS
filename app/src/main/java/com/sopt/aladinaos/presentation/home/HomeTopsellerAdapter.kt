@@ -5,15 +5,13 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.sopt.aladinaos.data.entity.response.HomeData.Topic
 import com.sopt.aladinaos.databinding.ItemHomeTopsellerBinding
 import com.sopt.aladinaos.presentation.detail.DetailActivity
-import com.sopt.aladinaos.util.ItemDiffCallback
 
- class HomeTopsellerAdapter(context: Context) :
+class HomeTopsellerAdapter(context: Context) :
     RecyclerView.Adapter<HomeTopsellerAdapter.HomeViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }
     private var topSellerList: List<Topic> = emptyList()
@@ -53,5 +51,4 @@ import com.sopt.aladinaos.util.ItemDiffCallback
         this.topSellerList = bookList.toList()
         notifyDataSetChanged()
     }
- }
-
+}

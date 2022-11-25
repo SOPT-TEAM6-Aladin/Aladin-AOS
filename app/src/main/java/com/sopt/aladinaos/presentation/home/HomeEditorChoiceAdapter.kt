@@ -24,8 +24,14 @@ class HomeEditorChoiceAdapter(context: Context) :
             Glide.with(this.binding.root)
                 .load(book.thumbnail)
                 .into(binding.ivHomeEditorBackground)
-            binding.tvEditorTitle.text = itemView.context.getString(R.string.home_editor_name, book.name)
-            binding.tvEditorAuthor.text = itemView.context.getString(R.string.home_editor_info, book.author, book.painter, book.publisher)
+            binding.tvEditorTitle.text =
+                itemView.context.getString(R.string.home_editor_name, book.name)
+            binding.tvEditorAuthor.text = itemView.context.getString(
+                R.string.home_editor_info,
+                book.author,
+                book.painter,
+                book.publisher
+            )
 
             binding.root.setOnClickListener {
                 val intent = Intent(binding.root.context, DetailActivity::class.java)
