@@ -7,21 +7,21 @@ import kotlinx.serialization.Serializable
 data class Detail(
     val id: Int,
     val name: String,
-    val intro: String,
-    val author: String,
-    val painter: String,
-    val like: Boolean,
-    var likeCount: Int,
-    val price: Int,
-    @SerialName("discount_rate")
-    val discountRate: Int,
-    val description: String,
-    val content: String,
-    val summary: String,
-
     val thumbnail: String,
     val cover: String,
+    val description: String,
+    val summary: String,
+    val author: String,
+    val painter: String,
+    val intro: String,
+    val publisher: String,
+    val price: Int,
+    @SerialName("discount_rate")
+    val discount: Int,
+    val content: String,
     val point: Int,
     val topic: Boolean,
-    val pick: Boolean
+    val pick: Boolean,
+    val like: Boolean,
+    var likeCount: Int
 )

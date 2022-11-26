@@ -51,16 +51,9 @@ class DetailViewModel @Inject constructor(
 
                     // 도서 정가 계산
                     _bookPrice.value = response.data.price
-                    if (response.data.discountRate == 0) return@onSuccess
-                    var discountRate = 0.01 * response.data.discountRate
+                    if (response.data.discount == 0) return@onSuccess
+                    var discountRate = 1 - (0.01 * response.data.discount)
                     _bookPrice.value = Math.round(_bookPrice.value!! * discountRate).toInt()
-
-                    // ★★★ 테스트 후에 아래 가격 관련 Timber 다 지우기
-                    Timber.d("Price : ${response.data.price}")
-                    Timber.d("Discount Rate : ${response.data.discountRate}")
-                    Timber.d("Discount Rate (Double) : $discountRate")
-                    Timber.d("Before Round Price : ${_bookPrice.value!! * discountRate}")
-                    Timber.d("After Round Price : ${_bookPrice.value}")
                 }.onFailure { throwable ->
                     Timber.e("GET BOOK DETAIL FAIL")
                     Timber.e("fail message : ${throwable.message}")
@@ -84,7 +77,7 @@ class DetailViewModel @Inject constructor(
                         _toastMessage.value = State.LIKE_SUCCESS
                         _likeCount.value = _likeCount.value?.plus(1) ?: 0
                     } else {
-                        _toastMessage.value = State.CANCEL
+                        _toastMessage.value = State.LIKE_CANCEL
                         _likeCount.value = _likeCount.value?.minus(1) ?: 0
                     }
                 }
@@ -122,8 +115,8 @@ class DetailViewModel @Inject constructor(
 
     companion object {
         enum class State {
-            NULL, ERROR, CANCEL,
-            LIKE_SUCCESS,
+            NULL, ERROR,
+            LIKE_SUCCESS, LIKE_CANCEL,
             CART_SUCCESS, CART_EXIST
         }
 
