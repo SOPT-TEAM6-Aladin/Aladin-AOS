@@ -102,7 +102,7 @@ class DetailViewModel @Inject constructor(
                 }
                 .onFailure { throwable ->
                     Timber.e("ADD TO CART FAIL")
-                    Timber.e("fail message : $throwable")
+                    Timber.e("throwable : $throwable")
                     if (throwable is HttpException) {
                         when (throwable.code()) {
                             CART_EXIST_CODE -> _toastMessage.value = State.CART_EXIST
