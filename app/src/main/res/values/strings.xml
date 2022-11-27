@@ -96,7 +96,7 @@
     <string name="detail_like_success">좋아요가 반영되었습니다.</string>
     <string name="detail_like_cancel">좋아요가 해제되었습니다.</string>
     <string name="detail_cart_success">장바구니에 추가되었습니다.</string>
-    <string name="detail_cart_exist">이미 장바구니를 추가 했습니다.</string>
+    <string name="detail_cart_exist">이미 장바구니에 추가된 상품입니다.</string>
     <!-- Cart -->
     <string name="cart_format_price">%,2d원</string>
     <string name="cart_body_count">%1d</string>

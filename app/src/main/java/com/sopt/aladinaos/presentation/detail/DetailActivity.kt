@@ -44,7 +44,7 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
     private fun initDetailResultObserve() {
         detailViewModel.detailResult.observe(this) {
             if (!it.pick) binding.ivDetailEditorBadge.visibility = View.GONE
-            if (it.discountRate == 0) binding.tvDetailCost.visibility = View.GONE
+            if (it.discount == 0) binding.tvDetailCost.visibility = View.GONE
             binding.btnDetailHeart.isSelected = it.like
         }
     }
@@ -53,11 +53,11 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
         detailViewModel.toastMessage.observe(this) {
             when (it) {
                 State.LIKE_SUCCESS -> this.showToast(getString(R.string.detail_like_success))
+                State.LIKE_CANCEL -> this.showToast(getString(R.string.detail_like_cancel))
                 State.CART_SUCCESS -> this.showToast(getString(R.string.detail_cart_success))
                 State.CART_EXIST -> this.showToast(getString(R.string.detail_cart_exist))
                 State.NULL -> this.showToast(getString(R.string.msg_null))
                 State.ERROR -> this.showToast(getString(R.string.msg_error))
-                State.CANCEL -> this.showToast(getString(R.string.detail_like_cancel))
                 else -> this.showToast(getString(R.string.msg_unknown_error))
             }
         }
