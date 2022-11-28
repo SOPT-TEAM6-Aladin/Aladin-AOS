@@ -89,6 +89,7 @@ class DetailViewModel @Inject constructor(
         }
     }
 
+    /** 서버에 장바구니 담기 요청 */
     fun addToCart(id: Int) {
         viewModelScope.launch {
             addRepository.addToCart(RequestAddToCartDto(id))
